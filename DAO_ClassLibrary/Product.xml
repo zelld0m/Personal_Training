@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<product id ="p1" categoryname ="category 1">
+    <name>Product 1</name>  
+    <price unit ="USD">100</price>
+    <description>
+      <color>red</color>
+      <size>size 1</size>
+      <weight>100gr</weight>
+    </description>
+</product>

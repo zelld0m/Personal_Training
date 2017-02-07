@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<productService>
+  <getProductInfo>
+    <result>
+      <item>
+        <dpno>40049171</dpno>
+        <edp>10290644</edp>
+        <productDetails>
+          <visibility>true</visibility>
+          <status>F1</status>
+          <isClearance>N</isClearance>
+          <isOpenBox>N</isOpenBox>
+          <isRefurb>N</isRefurb>
+          <isDeleted>N</isDeleted>
+          <condition>New</condition>
+          <mfrPN>V5C11US#ABA</mfrPN>
+          <manufacturer>HP Inc.</manufacturer>
+          <catCode>3F</catCode>
+          <category>Systems</category>
+          <subCategory>Notebook Computers</subCategory>
+          <class/>
+          <subClass/>
+          <upc/>
+          <vendNo>Y1930</vendNo>
+          <platform>PC</platform>
+          <isUPP>N</isUPP>
+          <isSREligible>Y</isSREligible>
+          <weight>0.9999</weight>
+          <storeSpecific>
+            <store>pcmall</store>
+            <name>
+              ZBook Studio G3 Mobile Workstation - Ultrabook - Core i7 6820HQ / 2.7 GHz - Win 10 Pro 64-bit / Win 7 Pro 64-bit downgrade - pre-installed: Win 7 Pro 64-bit - 16 GB RAM - 256 GB SSD Z Turbo Drive, NVM Express (NVMe) - 15.6" IPS 1920 x 1080 ( Full HD ) -
+            </name>
+            <description>
+              HP ZBook Studio G3 Mobile Workstation - Ultrabook - Core i7 6820HQ / 2.7 GHz - Win 10 Pro 64-bit / Win 7 Pro 64-bit downgrade - pre-installed: Win 7 Pro 64-bit - 16 GB RAM - 256 GB SSD HP Z Turbo Drive, NVM Express (NVMe) - 15.6" IPS 1920 x 1080 ( ...
+            </description>
+            <inCatalog>Y</inCatalog>
+          </storeSpecific>
+        </productDetails>
+        <prices>
+          <price>
+            <displayType>Standard</displayType>
+            <store>pcmall</store>
+            <priceText/>
+            <finalPrice>3409.99</finalPrice>
+            <priceButtonDescription>Pre-order Now</priceButtonDescription>
+            <mechanism/>
+            <rebates>
+              <mailInRebate>0.0</mailInRebate>
+              <instantRebate>0.0</instantRebate>
+            </rebates>
+          </price>
+        </prices>
+        <availability>
+          <availabilityCode>0</availabilityCode>
+          <qtyAvailable>0</qtyAvailable>
+          <vwInv>0</vwInv>
+          <memphisInv>0</memphisInv>
+          <availabilityDescription>
+            Temporarily out of stock. Order today and we'll deliver when available.
+          </availabilityDescription>
+          <maxOrderQty>0</maxOrderQty>
+          <minOrderQty>0</minOrderQty>
+        </availability>
+        <reviews>
+          <review>
+            <store>pcmall</store>
+            <reviewCount>0</reviewCount>
+            <reviewAverage>0.0</reviewAverage>
+          </review>
+        </reviews>
+        <images>
+          <image>
+            <ti>
+              http://i2.cc-inc.com/prod/40049000/40049171_ti.jpg#
+            </ti>
+            <sm>
+              http://i2.cc-inc.com/prod/40049000/40049171_sm.jpg#
+            </sm>
+            <me>
+              http://i2.cc-inc.com/prod/40049000/40049171_me.jpg#
+            </me>
+            <lg>
+              http://i2.cc-inc.com/prod/40049000/40049171_lg.jpg#
+            </lg>
+            <xlg>
+              http://i2.cc-inc.com/prod/40049000/40049171_xlg.jpg#
+            </xlg>
+            <xxlg>
+              http://i2.cc-inc.com/prod/40049000/40049171_xxlg.jpg#
+            </xxlg>
+            <xxxlg>
+              http://i2.cc-inc.com/prod/40049000/40049171_xxxlg.jpg#
+            </xxxlg>
+            <size45>
+              http://i2.cc-inc.com/prod/40049000/40049171_45.jpg#
+            </size45>
+          </image>
+          <hasImage>true</hasImage>
+        </images>
+        <campaignRebates/>
+      </item>
+    </result>
+  </getProductInfo>
+</productService>

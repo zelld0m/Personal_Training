@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ServiceLayer" />
+      <xsd:import />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addDummy_InputMessage">
+    <wsdl:part name="parameters" element="tns:addDummy" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addDummy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addDummyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_deleteDummy_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteDummy" />
+  </wsdl:message>
+  <wsdl:message name="IService1_deleteDummy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteDummyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SearchDummy_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchDummy" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SearchDummy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchDummyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateDummy_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDummy" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateDummy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDummyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_viewALLDummy_InputMessage">
+    <wsdl:part name="parameters" element="tns:viewALLDummy" />
+  </wsdl:message>
+  <wsdl:message name="IService1_viewALLDummy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:viewALLDummyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_viewAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:viewAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IService1_viewAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:viewAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_searchAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IService1_searchAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_deleteAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IService1_deleteAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Validation_InputMessage">
+    <wsdl:part name="parameters" element="tns:Validation" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Validation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SearchBrand_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchBrand" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SearchBrand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ViewALLProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewALLProduct" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ViewALLProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewALLProductResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addDummy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/addDummy" message="tns:IService1_addDummy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/addDummyResponse" message="tns:IService1_addDummy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteDummy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/deleteDummy" message="tns:IService1_deleteDummy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/deleteDummyResponse" message="tns:IService1_deleteDummy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchDummy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SearchDummy" message="tns:IService1_SearchDummy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SearchDummyResponse" message="tns:IService1_SearchDummy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDummy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateDummy" message="tns:IService1_UpdateDummy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateDummyResponse" message="tns:IService1_UpdateDummy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="viewALLDummy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/viewALLDummy" message="tns:IService1_viewALLDummy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/viewALLDummyResponse" message="tns:IService1_viewALLDummy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/insertAuthority" message="tns:IService1_insertAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/insertAuthorityResponse" message="tns:IService1_insertAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="viewAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/viewAuthority" message="tns:IService1_viewAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/viewAuthorityResponse" message="tns:IService1_viewAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/searchAuthority" message="tns:IService1_searchAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/searchAuthorityResponse" message="tns:IService1_searchAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateAuthority" message="tns:IService1_UpdateAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateAuthorityResponse" message="tns:IService1_UpdateAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/deleteAuthority" message="tns:IService1_deleteAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/deleteAuthorityResponse" message="tns:IService1_deleteAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Validation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Validation" message="tns:IService1_Validation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ValidationResponse" message="tns:IService1_Validation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchBrand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SearchBrand" message="tns:IService1_SearchBrand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SearchBrandResponse" message="tns:IService1_SearchBrand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewALLProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ViewALLProduct" message="tns:IService1_ViewALLProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ViewALLProductResponse" message="tns:IService1_ViewALLProduct_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addDummy">
+      <soap:operation soapAction="http://tempuri.org/IService1/addDummy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDummy">
+      <soap:operation soapAction="http://tempuri.org/IService1/deleteDummy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDummy">
+      <soap:operation soapAction="http://tempuri.org/IService1/SearchDummy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDummy">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateDummy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="viewALLDummy">
+      <soap:operation soapAction="http://tempuri.org/IService1/viewALLDummy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertAuthority">
+      <soap:operation soapAction="http://tempuri.org/IService1/insertAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="viewAuthority">
+      <soap:operation soapAction="http://tempuri.org/IService1/viewAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchAuthority">
+      <soap:operation soapAction="http://tempuri.org/IService1/searchAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAuthority">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAuthority">
+      <soap:operation soapAction="http://tempuri.org/IService1/deleteAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validation">
+      <soap:operation soapAction="http://tempuri.org/IService1/Validation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchBrand">
+      <soap:operation soapAction="http://tempuri.org/IService1/SearchBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewALLProduct">
+      <soap:operation soapAction="http://tempuri.org/IService1/ViewALLProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/ServiceLayer/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

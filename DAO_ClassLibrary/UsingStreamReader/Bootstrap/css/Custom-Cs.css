@@ -1,0 +1,52 @@
+﻿
+
+.styled-select select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
+
+.center {
+    text-align:center;
+}
+
+.center-page{
+    width:300px;
+    height:300px;
+    position :absolute;
+    top: 0;
+    bottom: 0;
+    left :0;
+    right:0;
+    margin:auto;
+}
+
+.styled-select {
+   width: 240px;
+   height: 34px;
+   overflow: hidden;
+   background: url(new_arrow.png) no-repeat right #ddd;
+   border: 1px solid #ccc;
+   }
+
+.space-vert{
+    margin-top:20px
+}
+
+.footer-pos{
+    width:auto;
+    height:auto;
+    position:absolute;
+
+    top:600;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+}

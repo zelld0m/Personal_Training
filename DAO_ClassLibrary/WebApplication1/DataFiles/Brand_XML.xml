@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<response>
+  <lst name="responseHeader">
+    <int name="status">0</int>
+    <int name="QTime">729</int>
+    <lst name="params">
+      <str name="facet.limit">10</str>
+      <str name="q">laptop</str>
+      <arr name="facet.field">
+        <str>Manufacturer</str>
+        <str>InStock</str>
+      </arr>
+      <str name="qt"/>
+      <str name="echoParams">explicit</str>
+      <str name="fl">EDP</str>
+      <str name="start">0</str>
+      <str name="store">pcmall</str>
+      <str name="rows">25</str>
+      <str name="facet">true</str>
+    </lst>
+    <search_rules>
+      <rule>
+        <id>laptop</id>
+        <name>laptop</name>
+        <active>true</active>
+        <type>Exclude</type>
+      </rule>
+      <rule>
+        <id>laptop</id>
+        <name>laptop</name>
+        <active>true</active>
+        <type>Demote</type>
+      </rule>
+      <rule>
+        <id>laptop</id>
+        <name>laptop</name>
+        <active>true</active>
+        <type>Elevate</type>
+      </rule>
+    </search_rules>
+  </lst>
+  <result name="response" numFound="94258" start="0">
+    <doc>
+      <int name="EDP">6926988</int>
+    </doc>
+    <doc>
+      <int name="EDP">8634979</int>
+    </doc>
+    <doc>
+      <int name="EDP">5442657</int>
+    </doc>
+    <doc>
+      <int name="EDP">10581521</int>
+    </doc>
+    <doc>
+      <int name="EDP">10491265</int>
+    </doc>
+    <doc>
+      <int name="EDP">2637776</int>
+    </doc>
+    <doc>
+      <int name="EDP">2637786</int>
+    </doc>
+    <doc>
+      <int name="EDP">2170508</int>
+    </doc>
+    <doc>
+      <int name="EDP">3876286</int>
+    </doc>
+    <doc>
+      <int name="EDP">4159561</int>
+    </doc>
+    <doc>
+      <int name="EDP">4164701</int>
+    </doc>
+    <doc>
+      <int name="EDP">4165843</int>
+    </doc>
+    <doc>
+      <int name="EDP">4213903</int>
+    </doc>
+    <doc>
+      <int name="EDP">8094993</int>
+    </doc>
+    <doc>
+      <int name="EDP">5754868</int>
+    </doc>
+    <doc>
+      <int name="EDP">5718151</int>
+    </doc>
+    <doc>
+      <int name="EDP">6829255</int>
+    </doc>
+    <doc>
+      <int name="EDP">6829254</int>
+    </doc>
+    <doc>
+      <int name="EDP">7052892</int>
+    </doc>
+    <doc>
+      <int name="EDP">7944907</int>
+    </doc>
+    <doc>
+      <int name="EDP">7093687</int>
+    </doc>
+    <doc>
+      <int name="EDP">8141919</int>
+    </doc>
+    <doc>
+      <int name="EDP">8827468</int>
+    </doc>
+    <doc>
+      <int name="EDP">8827979</int>
+    </doc>
+    <doc>
+      <int name="EDP">9391924</int>
+    </doc>
+  </result>
+  <lst name="facet_counts">
+    <lst name="facet_queries"/>
+    <lst name="facet_fields">
+      <lst name="Manufacturer">
+        <int name="Battery Technology inc">39173</int>
+        <int name="Lenovo">6130</int>
+        <int name="HP">5719</int>
+        <int name="Sony">2369</int>
+        <int name="HP Inc.">2228</int>
+        <int name="Dell">2018</int>
+        <int name="Symantec">1931</int>
+        <int name="Panasonic">1748</int>
+        <int name="Toshiba">1435</int>
+        <int name="Safeware">1061</int>
+      </lst>
+      <lst name="InStock">
+        <int name="false">87973</int>
+        <int name="true">6282</int>
+      </lst>
+    </lst>
+    <lst name="facet_dates"/>
+    <lst name="facet_ranges"/>
+  </lst>
+  <banners/>
+  <lst name="spellcheck">
+    <lst name="suggestions"/>
+  </lst>
+</response>
