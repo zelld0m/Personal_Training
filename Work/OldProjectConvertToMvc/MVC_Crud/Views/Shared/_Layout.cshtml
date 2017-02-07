@@ -6,6 +6,58 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <!--Reference for calling the Content/Custom.css-->
+    <link href="@Url.Content("~/Content/Custom.css")" rel="stylesheet" type="text/css" />
+    @RenderSection("Styles",false)
+   
+    <!-- THIS FILES ARE WRITTEN IN (~/CONTENT/Custom.css)-->
+    <!--
+    <style>
+        .dropbtn {
+            background-color: #000;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #808080;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #808080;
+        }
+    </style>
+    -->
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,6 +76,19 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("People", "Index", "People")</li>
+                    <!-- Dropdown-->
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn" data-toggle="dropdown">Products<b class="caret"></b></a>
+                        <div class="dropdown-content">
+                            <a role="separator" class="divider"></a>
+                            <a class="dropdown-header">LAPTOP</a>
+                            <a role="separator" class="divider"></a>
+                            <a href="http://localhost:59321/Home/About">PriceList</a>
+                            <a href="#">Pants</a>
+                            <a href="#">Denims</a>
+                        </div>
+                    </li>
+                    <!-- Dropdown-->
                 </ul>
             </div>
         </div>
@@ -32,7 +97,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy;  @DateTime.Now.Date.Month/@DateTime.Now.Day/@DateTime.Now.Year   (@DateTime.Now.Hour:@DateTime.Now.Minute)  - My ASP.NET Application</p>
         </footer>
     </div>
 
