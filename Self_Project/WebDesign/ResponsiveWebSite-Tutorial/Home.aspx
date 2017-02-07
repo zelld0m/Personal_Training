@@ -1,4 +1,4 @@
-﻿<%--<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="ResponsiveWebSite_Tutorial.About" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="ResponsiveWebSite_Tutorial.About" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -141,12 +141,12 @@
     </div>
     <!--- Middle Contents END -->
 
-</asp:Content>--%>
+</asp:Content>
 
 
 
 
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="ResponsiveWebSite_Tutorial.Default" %>
+<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="ResponsiveWebSite_Tutorial.Default" %>
 
 <!DOCTYPE html>
 
@@ -376,4 +376,4 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 </body>
-</html>
+</html>--%>
