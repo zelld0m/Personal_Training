@@ -2,8 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8" />
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <!--Bootstrap-->
+    <!-- Latest compiled and minified CSS -->
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">*@
+
+    <!-- Optional theme -->
+   @* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">*@
+
+     <!--Bootstrap END-->
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -83,7 +93,7 @@
                             <a role="separator" class="divider"></a>
                             <a class="dropdown-header">LAPTOP</a>
                             <a role="separator" class="divider"></a>
-                            <a href="http://localhost:59321/Home/About">PriceList</a>
+                            <a href="/Home/About">About </a>
                             <a href="#">Pants</a>
                             <a href="#">Denims</a>
                         </div>
@@ -104,5 +114,11 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
+    <!--Bootstrap END-->
+    <!-- Latest compiled and minified JavaScript -->
+    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>*@
+    <!--Bootstrap END-->
 </body>
 </html>
