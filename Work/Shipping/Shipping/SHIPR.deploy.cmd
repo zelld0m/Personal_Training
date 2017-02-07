@@ -177,9 +177,9 @@ call :CheckParameterFile
 echo. Start executing msdeploy.exe
 echo -------------------------------------------------------
 if  not exist "%_DeploySetParametersFile%" (
-set _MSDeployCommandline="%MSDeployPath%msdeploy.exe" -source:package='%RootPath%SHIPR.zip' -dest:%_Destination% -verb:sync -disableLink:AppPoolExtension -disableLink:ContentExtension -disableLink:CertificateExtension -skip:objectname='dirPath',absolutepath='obj\\Release\\Package\\PackageTmp\\App_Data$' -skip:objectname='dirPath',absolutepath='shipr\\App_Data$'
+set _MSDeployCommandline="%MSDeployPath%msdeploy.exe" -source:package='%RootPath%SHIPR.zip' -dest:%_Destination% -verb:sync -disableLink:AppPoolExtension -disableLink:ContentExtension -disableLink:CertificateExtension
 ) else (
-set _MSDeployCommandline="%MSDeployPath%msdeploy.exe" -source:package='%RootPath%SHIPR.zip' -dest:%_Destination% -verb:sync -disableLink:AppPoolExtension -disableLink:ContentExtension -disableLink:CertificateExtension -skip:objectname='dirPath',absolutepath='obj\\Release\\Package\\PackageTmp\\App_Data$' -skip:objectname='dirPath',absolutepath='shipr\\App_Data$' -setParamFile:"%_DeploySetParametersFile%"
+set _MSDeployCommandline="%MSDeployPath%msdeploy.exe" -source:package='%RootPath%SHIPR.zip' -dest:%_Destination% -verb:sync -disableLink:AppPoolExtension -disableLink:ContentExtension -disableLink:CertificateExtension -setParamFile:"%_DeploySetParametersFile%"
 )
 
 if "%_HaveArgMSDeployAdditonalFlags%" == "" (

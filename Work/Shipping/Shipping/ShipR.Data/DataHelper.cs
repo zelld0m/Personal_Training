@@ -112,9 +112,7 @@ namespace ShipR.Data
                 else
                     return false;
             }
-#pragma warning disable CS0168 // The variable 'exc' is declared but never used
             catch (Exception exc)
-#pragma warning restore CS0168 // The variable 'exc' is declared but never used
             {
                 return false;
             }

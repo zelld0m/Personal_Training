@@ -1,0 +1,15 @@
+﻿<parameters>
+  <parameter name="IIS Web Application Name" defaultValue="Default Web Site\PAckage" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\anunag\\Source\\Repos\\SHIPPINGS\\Shippings\\SHIPR\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\anunag\\Source\\Repos\\SHIPPINGS\\Shippings\\SHIPR\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Cc_product-Web.config Connection String" defaultValue="server=AFS-SW-SQWP01.pcmall.com;database=cc_product;uid=stgusrprod;pwd=LUc3Hr8mVk;Min Pool Size=5;Max Pool Size=100">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\anunag\\Source\\Repos\\SHIPPINGS\\Shippings\\SHIPR\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Cc_product']/@connectionString" />
+  </parameter>
+  <parameter name="Gman-Web.config Connection String" defaultValue="server=CSESQL2;database=MIS;uid=GReader;pwd=ugadayka;Min Pool Size=5;Max Pool Size=100">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\anunag\\Source\\Repos\\SHIPPINGS\\Shippings\\SHIPR\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Gman']/@connectionString" />
+  </parameter>
+  <parameter name="Rap-Web.config Connection String" defaultValue="server=AFS-SW-SQAPP01.pcmall.com;database=RAP;uid=stgusrprod;pwd=LUc3Hr8mVk;Min Pool Size=5;Max Pool Size=100">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\anunag\\Source\\Repos\\SHIPPINGS\\Shippings\\SHIPR\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Rap']/@connectionString" />
+  </parameter>
+</parameters>

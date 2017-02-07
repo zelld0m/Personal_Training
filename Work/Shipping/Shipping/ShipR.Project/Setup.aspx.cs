@@ -159,12 +159,8 @@ namespace Shipr
                 increaseWeightThreshold = (uxPromoType.IncreaseWeightThreshold == null || uxPromoType.IncreaseWeightThreshold.ToString().Length == 0 ? 0 : Convert.ToDouble(uxPromoType.IncreaseWeightThreshold));
                 increaseDollarThreshold = (uxPromoType.IncreaseDollarThreshold == null || uxPromoType.IncreaseDollarThreshold.ToString().Length == 0 ? 0 : Convert.ToDouble(uxPromoType.IncreaseDollarThreshold));
 
-#pragma warning disable CS0472 // The result of the expression is always 'false' since a value of type 'int' is never equal to 'null' of type 'int?'
                 discountType = (uxPromoType.DiscountTypeID == null ? "" : uxPromoType.DiscountTypeID.ToString());
-#pragma warning restore CS0472 // The result of the expression is always 'false' since a value of type 'int' is never equal to 'null' of type 'int?'
-#pragma warning disable CS0472 // The result of the expression is always 'false' since a value of type 'double' is never equal to 'null' of type 'double?'
                 discountValue = (uxPromoType.DiscountValue == null ? "0" : uxPromoType.DiscountValue.ToString());
-#pragma warning restore CS0472 // The result of the expression is always 'false' since a value of type 'double' is never equal to 'null' of type 'double?'
                 if (uxPromoType.PromoTypeID == 2) //category
                     promoQualifiers = uxPromoType.CategoryCodes;
                 else if (uxPromoType.PromoTypeID == 3) //manufacturers

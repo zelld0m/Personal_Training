@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <setParameter name="IIS Web Application Name" value="shipr" />
-  <setParameter name="Gman-Web.config Connection String" value="Data Source=CSESQL2;Initial Catalog=MIS;User ID=GReader;Password=ugadayka;Min Pool Size=5;Max Pool Size=100" />
-  <setParameter name="Rap-Web.config Connection String" value="Data Source=storsqldev01;Initial Catalog=RAP;User ID=devusrprod;Password=DevSeqlU$e;Min Pool Size=5;Max Pool Size=100" />
-  <setParameter name="Cc_product-Web.config Connection String" value="Data Source=10.241.3.91;Initial Catalog=cc_product;User ID=cc_siteserver;Password=bolehs;Min Pool Size=5;Max Pool Size=100" />
-  <setParameter name="Rap-Deployment Connection String" value="Data Source=storsqldev01;Initial Catalog=RAP;User ID=devusrprod;Password=DevSeqlU$e;Min Pool Size=5;Max Pool Size=100" />
+  <setParameter name="IIS Web Application Name" value="Default Web Site\PAckage" />
+  <setParameter name="Gman-Web.config Connection String" value="server=CSESQL2;database=MIS;uid=GReader;pwd=ugadayka;Min Pool Size=5;Max Pool Size=100" />
+  <setParameter name="Rap-Web.config Connection String" value="server=AFS-SW-SQAPP01.pcmall.com;database=RAP;uid=stgusrprod;pwd=LUc3Hr8mVk;Min Pool Size=5;Max Pool Size=100" />
+  <setParameter name="Cc_product-Web.config Connection String" value="server=AFS-SW-SQWP01.pcmall.com;database=cc_product;uid=stgusrprod;pwd=LUc3Hr8mVk;Min Pool Size=5;Max Pool Size=100" />
 </parameters>

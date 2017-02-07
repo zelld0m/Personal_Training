@@ -238,15 +238,6 @@ namespace Shipr.lib {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenSkus;
         
         /// <summary>
-        /// btnRemoveSku control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnRemoveSku;
-        
-        /// <summary>
         /// uxCategoryCodes control.
         /// </summary>
         /// <remarks>

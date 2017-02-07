@@ -11,9 +11,7 @@ namespace ShipR.Business
 {
 	public class UserAccess
 	{
-#pragma warning disable CS0618 // 'ConfigurationSettings.AppSettings' is obsolete: 'This method is obsolete, it has been replaced by System.Configuration!System.Configuration.ConfigurationManager.AppSettings'
 		private string AppName = System.Configuration.ConfigurationSettings.AppSettings["AppName"].ToString();
-#pragma warning restore CS0618 // 'ConfigurationSettings.AppSettings' is obsolete: 'This method is obsolete, it has been replaced by System.Configuration!System.Configuration.ConfigurationManager.AppSettings'
 		public string Login { get; set; }
 		public bool AllowedRead { get; set; }
 		public bool AllowedWrite { get; set; }

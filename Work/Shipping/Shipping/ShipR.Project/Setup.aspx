@@ -6,16 +6,13 @@
 <%@ Register src="~/ShipR.Project/Controls/MultilineText.ascx" tagname="MultilineText" tagprefix="uc6" %>
 <%@ Register src="~/ShipR.Project/Controls/SingleTextBox.ascx" tagname="SingleTextBox" tagprefix="uc7" %>
 <%@ Register Src="~/ShipR.Project/Controls/ShipPromoText.ascx" TagName="ShipPromoText" TagPrefix="uc8" %>
-
 <asp:Content ID="DefaultContent" ContentPlaceHolderID="uxContent" runat="server">
 
-
-<script src="setup.js" type="text/javascript"> </script>
+<script type="text/javascript"  src="setup.js"> </script>
 
  
 
    <script  language = "javascript" type="text/javascript" > 
-    
 function IsNumeric(strString) // this function gets the String and check the digits input string  if it macthes its required value it will  return boolean TRUE 
 {
     var strValidChars = "0123456789";
@@ -36,35 +33,20 @@ function IsNumeric(strString) // this function gets the String and check the dig
 function AddSkuToListBox()
 {
 
-     // --------------------------  THIS IS A TEST 
-    //var str,
-    //    element = document.getElementById('ctl00_uxContent_uxPromoType_txtSku');
-    //if (element != null) {
-    //    str = element.value;
-    //}
-    //else {
-    //    str = null;
-    //} window.alert(str);
-    // --------------------------- THIS IS A TEST
-    
-
-
-
     //var sku = ux; // == textbox  --------------------------------------CHECK THIS -----------recomended by sir Jhosef-------create a specific id to locate txtbox for input SKU---------------------------------------------
+
     var sku = document.getElementById("ctl00_uxContent_uxPromoType_txtSku"); // == textbox
-   // window.alert("SKU value IS =" + sku.nodeValue + ""); debugger;//cccc
-    if(sku.value == (""))     // if txtbox is clear   or  sku is clear
+  	if(sku.value == "")     // if txtbox is clear   or  sku is clear
 	{
 	    alert('Please enter sku in Text Box');
 		sku.focus();  // tab on the txtbx
 		return false;
-    }
-
+	}
 
 	else if(sku.value != "")        // if not Empty
 	{
 		var vStatus = "0";		
-		var vLen =   document.getElementById("ctl00_uxContent_uxPromoType_listSkus").length; // Listbox
+		var vLen = document.getElementById("ctl00_uxContent_uxPromoType_listSkus").length; // Listbox
 		var i;
 		if(vLen != 0)  // if listbox  is not equal to  0  do this 
 		{

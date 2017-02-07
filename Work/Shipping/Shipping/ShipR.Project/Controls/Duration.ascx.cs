@@ -58,9 +58,7 @@ namespace Shipr.lib
                 if (ddl.Items[i].ToString().Equals(value.PadLeft(8,'0')))
                 {
                     return i;
-#pragma warning disable CS0162 // Unreachable code detected
                     break;
-#pragma warning restore CS0162 // Unreachable code detected
                 }
             }
             return 0;
