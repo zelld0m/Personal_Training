@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AuthorityLevel">
+          <Key>
+            <PropertyRef Name="A_Id" />
+          </Key>
+          <Property Name="A_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuthorityName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AccessLevel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dummy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Persons">
+          <Key>
+            <PropertyRef Name="P_Id" />
+          </Key>
+          <Property Name="P_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="255" />
+          <Property Name="Username" Type="varchar" MaxLength="255" />
+          <Property Name="Password" Type="varchar" MaxLength="255" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="P_Id" />
+          </Key>
+          <Property Name="P_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brand" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PromoDiscountValue">
+          <Key>
+            <PropertyRef Name="PromoDiscountValueID" />
+          </Key>
+          <Property Name="PromoDiscountValueID" Type="int" Nullable="false" />
+          <Property Name="DiscountValueType_DiscountValueTypeId" Type="tinyint" Nullable="false" />
+          <Property Name="Promos_PromoId" Type="int" Nullable="false" />
+          <Property Name="PromoId" Type="int" />
+          <Property Name="DiscountValueType" Type="int" />
+          <Property Name="Discountvalue" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Registration.dbo.Promos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Promos">
+          <Key>
+            <PropertyRef Name="PromoID" />
+            <PropertyRef Name="PromoAvailability_AvailabilityID" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateLastModified" />
+            <PropertyRef Name="ModifiedBy" />
+            <PropertyRef Name="ShowOnCap" />
+            <PropertyRef Name="DateStart" />
+            <PropertyRef Name="DateEnd" />
+            <PropertyRef Name="PromoText" />
+            <PropertyRef Name="PromoAvailabilityID" />
+          </Key>
+          <Property Name="PromoID" Type="int" Nullable="false" />
+          <Property Name="PromoAvailability_AvailabilityID" Type="tinyint" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="DateLastModified" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" Nullable="false" />
+          <Property Name="ShowOnCap" Type="bit" Nullable="false" />
+          <Property Name="DateStart" Type="datetime" Nullable="false" />
+          <Property Name="DateEnd" Type="datetime" Nullable="false" />
+          <Property Name="PromoText" Type="text" Nullable="false" />
+          <Property Name="PromoAvailabilityID" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Registration.dbo.Dummy And Authority Level View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Dummy And Authority Level View">
+          <Key>
+            <PropertyRef Name="A_Id" />
+            <PropertyRef Name="AuthorityName" />
+            <PropertyRef Name="AccessLevel" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="A_Id" Type="int" Nullable="false" />
+          <Property Name="AuthorityName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AccessLevel" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Function Name="AddDummy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="Delete_Authority" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="A_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Delete_Dummy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeletePerson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonIdToDelete" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FindPerson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PersonID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GetPersons" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Insert_Authority" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AuthorityName" Type="varchar" Mode="In" />
+          <Parameter Name="AccessLevel" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Insert_Dummy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="Search_Authority" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="A_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Search_Dummy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectALL_Dummy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Update_Authority" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AccessLevel" Type="int" Mode="In" />
+          <Parameter Name="AuthorityName" Type="varchar" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Update_Dummy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="InOut" />
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="RegistrationModelStoreContainer">
+          <EntitySet Name="AuthorityLevel" EntityType="Self.AuthorityLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dummy" EntityType="Self.Dummy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persons" EntityType="Self.Persons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PromoDiscountValue" EntityType="Self.PromoDiscountValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promos" EntityType="Self.Promos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Promos].[PromoID] AS [PromoID], 
+    [Promos].[PromoAvailability_AvailabilityID] AS [PromoAvailability_AvailabilityID], 
+    [Promos].[DateCreated] AS [DateCreated], 
+    [Promos].[CreatedBy] AS [CreatedBy], 
+    [Promos].[DateLastModified] AS [DateLastModified], 
+    [Promos].[ModifiedBy] AS [ModifiedBy], 
+    [Promos].[ShowOnCap] AS [ShowOnCap], 
+    [Promos].[DateStart] AS [DateStart], 
+    [Promos].[DateEnd] AS [DateEnd], 
+    [Promos].[PromoText] AS [PromoText], 
+    [Promos].[PromoAvailabilityID] AS [PromoAvailabilityID]
+    FROM [dbo].[Promos] AS [Promos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Dummy And Authority Level View" EntityType="Self.Dummy And Authority Level View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Dummy And Authority Level View].[A_Id] AS [A_Id], 
+    [Dummy And Authority Level View].[AuthorityName] AS [AuthorityName], 
+    [Dummy And Authority Level View].[AccessLevel] AS [AccessLevel], 
+    [Dummy And Authority Level View].[ID] AS [ID], 
+    [Dummy And Authority Level View].[Name] AS [Name]
+    FROM [dbo].[Dummy And Authority Level View] AS [Dummy And Authority Level View]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RegistrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AuthorityLevel">
+          <Key>
+            <PropertyRef Name="A_Id" />
+          </Key>
+          <Property Name="A_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorityName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccessLevel" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dummy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="P_Id" />
+          </Key>
+          <Property Name="P_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="P_Id" />
+          </Key>
+          <Property Name="P_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PromoDiscountValue">
+          <Key>
+            <PropertyRef Name="PromoDiscountValueID" />
+          </Key>
+          <Property Name="PromoDiscountValueID" Type="Int32" Nullable="false" />
+          <Property Name="DiscountValueType_DiscountValueTypeId" Type="Byte" Nullable="false" />
+          <Property Name="Promos_PromoId" Type="Int32" Nullable="false" />
+          <Property Name="PromoId" Type="Int32" />
+          <Property Name="DiscountValueType" Type="Int32" />
+          <Property Name="Discountvalue" Type="Double" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Promo">
+          <Key>
+            <PropertyRef Name="PromoID" />
+            <PropertyRef Name="PromoAvailability_AvailabilityID" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateLastModified" />
+            <PropertyRef Name="ModifiedBy" />
+            <PropertyRef Name="ShowOnCap" />
+            <PropertyRef Name="DateStart" />
+            <PropertyRef Name="DateEnd" />
+            <PropertyRef Name="PromoText" />
+            <PropertyRef Name="PromoAvailabilityID" />
+          </Key>
+          <Property Name="PromoID" Type="Int32" Nullable="false" />
+          <Property Name="PromoAvailability_AvailabilityID" Type="Byte" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="DateLastModified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+          <Property Name="ShowOnCap" Type="Boolean" Nullable="false" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PromoText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PromoAvailabilityID" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dummy_And_Authority_Level_View">
+          <Key>
+            <PropertyRef Name="A_Id" />
+            <PropertyRef Name="AuthorityName" />
+            <PropertyRef Name="AccessLevel" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="A_Id" Type="Int32" Nullable="false" />
+          <Property Name="AuthorityName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccessLevel" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="RegistrationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AuthorityLevels" EntityType="Self.AuthorityLevel" />
+          <EntitySet Name="Dummies" EntityType="Self.Dummy" />
+          <EntitySet Name="Persons" EntityType="Self.Person" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="PromoDiscountValues" EntityType="Self.PromoDiscountValue" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Promos" EntityType="Self.Promo" />
+          <EntitySet Name="Dummy_And_Authority_Level_Views" EntityType="Self.Dummy_And_Authority_Level_View" />
+          <FunctionImport Name="AddDummy">
+            <Parameter Name="name" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_Authority">
+            <Parameter Name="A_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Delete_Dummy">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePerson">
+            <Parameter Name="PersonIdToDelete" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FindPerson" ReturnType="Collection(RegistrationModel.FindPerson_Result)">
+            <Parameter Name="PersonID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetPersons" ReturnType="Collection(RegistrationModel.GetPersons_Result)" />
+          <FunctionImport Name="Insert_Authority">
+            <Parameter Name="AuthorityName" Mode="In" Type="String" />
+            <Parameter Name="AccessLevel" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Insert_Dummy">
+            <Parameter Name="name" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Search_Authority" ReturnType="Collection(RegistrationModel.Search_Authority_Result)">
+            <Parameter Name="A_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Search_Dummy" ReturnType="Collection(RegistrationModel.Search_Dummy_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectALL_Dummy" ReturnType="Collection(RegistrationModel.SelectALL_Dummy_Result)" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(RegistrationModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(RegistrationModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="Update_Authority">
+            <Parameter Name="AccessLevel" Mode="In" Type="Int32" />
+            <Parameter Name="AuthorityName" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Update_Dummy">
+            <Parameter Name="Name" Mode="InOut" Type="String" />
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="FindPerson_Result">
+          <Property Type="Int32" Name="P_Id" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Username" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="GetPersons_Result">
+          <Property Type="Int32" Name="P_Id" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Username" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="Search_Authority_Result">
+          <Property Type="Int32" Name="A_Id" Nullable="false" />
+          <Property Type="String" Name="AuthorityName" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="AccessLevel" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Search_Dummy_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="SelectALL_Dummy_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RegistrationModelStoreContainer" CdmEntityContainer="RegistrationEntities">
+          <EntitySetMapping Name="AuthorityLevels">
+            <EntityTypeMapping TypeName="RegistrationModel.AuthorityLevel">
+              <MappingFragment StoreEntitySet="AuthorityLevel">
+                <ScalarProperty Name="A_Id" ColumnName="A_Id" />
+                <ScalarProperty Name="AuthorityName" ColumnName="AuthorityName" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dummies">
+            <EntityTypeMapping TypeName="RegistrationModel.Dummy">
+              <MappingFragment StoreEntitySet="Dummy">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persons">
+            <EntityTypeMapping TypeName="RegistrationModel.Person">
+              <MappingFragment StoreEntitySet="Persons">
+                <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="RegistrationModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PromoDiscountValues">
+            <EntityTypeMapping TypeName="RegistrationModel.PromoDiscountValue">
+              <MappingFragment StoreEntitySet="PromoDiscountValue">
+                <ScalarProperty Name="PromoDiscountValueID" ColumnName="PromoDiscountValueID" />
+                <ScalarProperty Name="DiscountValueType_DiscountValueTypeId" ColumnName="DiscountValueType_DiscountValueTypeId" />
+                <ScalarProperty Name="Promos_PromoId" ColumnName="Promos_PromoId" />
+                <ScalarProperty Name="PromoId" ColumnName="PromoId" />
+                <ScalarProperty Name="DiscountValueType" ColumnName="DiscountValueType" />
+                <ScalarProperty Name="Discountvalue" ColumnName="Discountvalue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RegistrationModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promos">
+            <EntityTypeMapping TypeName="RegistrationModel.Promo">
+              <MappingFragment StoreEntitySet="Promos">
+                <ScalarProperty Name="PromoID" ColumnName="PromoID" />
+                <ScalarProperty Name="PromoAvailability_AvailabilityID" ColumnName="PromoAvailability_AvailabilityID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ShowOnCap" ColumnName="ShowOnCap" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="PromoText" ColumnName="PromoText" />
+                <ScalarProperty Name="PromoAvailabilityID" ColumnName="PromoAvailabilityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dummy_And_Authority_Level_Views">
+            <EntityTypeMapping TypeName="RegistrationModel.Dummy_And_Authority_Level_View">
+              <MappingFragment StoreEntitySet="Dummy And Authority Level View">
+                <ScalarProperty Name="A_Id" ColumnName="A_Id" />
+                <ScalarProperty Name="AuthorityName" ColumnName="AuthorityName" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddDummy" FunctionName="RegistrationModel.Store.AddDummy" />
+          <FunctionImportMapping FunctionImportName="Delete_Authority" FunctionName="RegistrationModel.Store.Delete_Authority" />
+          <FunctionImportMapping FunctionImportName="Delete_Dummy" FunctionName="RegistrationModel.Store.Delete_Dummy" />
+          <FunctionImportMapping FunctionImportName="DeletePerson" FunctionName="RegistrationModel.Store.DeletePerson" />
+          <FunctionImportMapping FunctionImportName="FindPerson" FunctionName="RegistrationModel.Store.FindPerson">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RegistrationModel.FindPerson_Result">
+                <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetPersons" FunctionName="RegistrationModel.Store.GetPersons">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RegistrationModel.GetPersons_Result">
+                <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Insert_Authority" FunctionName="RegistrationModel.Store.Insert_Authority" />
+          <FunctionImportMapping FunctionImportName="Insert_Dummy" FunctionName="RegistrationModel.Store.Insert_Dummy" />
+          <FunctionImportMapping FunctionImportName="Search_Authority" FunctionName="RegistrationModel.Store.Search_Authority">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RegistrationModel.Search_Authority_Result">
+                <ScalarProperty Name="A_Id" ColumnName="A_Id" />
+                <ScalarProperty Name="AuthorityName" ColumnName="AuthorityName" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Search_Dummy" FunctionName="RegistrationModel.Store.Search_Dummy">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RegistrationModel.Search_Dummy_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectALL_Dummy" FunctionName="RegistrationModel.Store.SelectALL_Dummy">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RegistrationModel.SelectALL_Dummy_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="RegistrationModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="RegistrationModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="RegistrationModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="RegistrationModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RegistrationModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="RegistrationModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RegistrationModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="RegistrationModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="RegistrationModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="Update_Authority" FunctionName="RegistrationModel.Store.Update_Authority" />
+          <FunctionImportMapping FunctionImportName="Update_Dummy" FunctionName="RegistrationModel.Store.Update_Dummy" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

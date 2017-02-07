@@ -1,0 +1,89 @@
+﻿
+<!DOCTYPE html>
+<html>
+@{
+    ViewBag.Title = "ListCountry";
+}
+
+
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#label1").hover(function () {
+                $("#label1").hide();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#animateGreen").hover(function () {
+                var div = $("#animateGreen");
+                for (i = 0; i < 1; i++) {
+                    //  div.css({ left: "200px" });
+                    div.animate({ height: '50px', width: '50', opacity: '0.1' }, "slow");
+                    div.animate({ height: '20px', width: '20px', opacity: '1' }, "slow");
+                    div.animate({ height: '50px', width: '50', opacity: '0.1' }, "slow");
+                    div.animate({ opacity: '1' });
+                    //  div.css({ left: "-200px" });
+                }
+            });
+            $("p1").show();
+        });
+    </script>
+
+
+</head>
+
+
+<body>
+    <div class="col-lg-5 ">
+        <div id="container1" class="col-lg-offset-9">
+            <div class="col-sm-2">
+                <div id="animateGreen" style="background:#98bf21;height:50px;width:50px;position:sticky;"></div>
+                asdasdasdasd
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3">
+            <h2>ListCountry</h2>
+            <button id="button1"> Test</button>
+            <p id="label1">This is a paragraph.</p>
+        </div>
+
+
+
+    <div>
+       <div style="align-content:center">Some content3, some-content</div> 
+    </div>
+    <div style="background-color:cadetblue;"class="col-lg-3">
+        Some content2, some-content
+    </div>
+
+    <style class="alert-success">
+    </style>
+
+    <div class="bg-green , col-sm-10" >
+        Some content1, some-content
+    </div>
+  
+    <style>
+        .bg-red {
+            background-color: red;
+        }
+        .bg-green{
+            background-color:green;
+        }
+    </style>
+
+    <div class="bg-red">
+        Some content0, some-content
+    </div>
+
+
+
+</body>
+</html>
