@@ -1,0 +1,38 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="Shipr.Default" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<asp:ContentPlaceHolder ID="uxHead" runat="server"></asp:ContentPlaceHolder>
+	<link rel="stylesheet" type="text/css" href="Style/reset-fonts-grids.css" /> 
+	<link rel="stylesheet" type="text/css" href="Style/base-min.css" /> 
+	<link rel="stylesheet" type="text/css" href="Style/default/style.css" /> 
+</head>
+<body id="body" runat="server">
+	<form id="uxForm" runat="server">
+		<asp:Panel ID="uxAllow" Visible="false" runat="server">
+			<div id="doc3" class="yui-t7">
+				<div id="hd"><h1><a href="./"><img src="Style/default/images/hd-logo.png" alt="Shipping promotions tool" height="122px" width="103px" /></a></h1></div>
+				<div id="bd">
+					<div id="nav" class="yui-g">
+						<ul>
+							<li id="home"><a href="Default.aspx" title="Home">Home<span></span></a></li>
+							<li id="list"><a href="List.aspx" title="Promo list">Promo list<span></span></a></li>
+							<li id="setup"><a href="Setup.aspx" title="Promo setup">Promo setup<span></span></a></li>
+						</ul>
+					</div>
+					<div id="content" class="yui-g">
+						<asp:ContentPlaceHolder ID="uxContent" runat="server"></asp:ContentPlaceHolder>
+					</div>
+				</div>
+				<div id="ft"><p></p></div>
+			</div>
+		</asp:Panel>
+		<asp:Panel ID="uxDeny" visible="false" runat="server">
+			<h1>Access denied.</h1>
+			<p>Sorry, you are not allowed to access this area.</p>
+		</asp:Panel>
+	</form>
+</body>
+</html>

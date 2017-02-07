@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4232FDF-17E0-4EAD-B832-769331FCCFDF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SHIPR</RootNamespace>
+    <AssemblyName>SHIPR</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>true</IncludeIisSettings>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <PublishDatabases>false</PublishDatabases>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>true</IncludeIisSettings>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ShipR.Project\Default.aspx" />
+    <Content Include="ShipR.Project\List.aspx" />
+    <Content Include="ShipR.Project\Setup.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="ShipR.Business\PromoManagement.cs" />
+    <Compile Include="ShipR.Business\UserAccess.cs" />
+    <Compile Include="ShipR.Data\LookUpData.cs" />
+    <Compile Include="ShipR.Data\DataHelper.cs" />
+    <Compile Include="ShipR.Entities\PromoData.cs" />
+    <Compile Include="ShipR.Data\UserData.cs" />
+    <Compile Include="ShipR.Entities\PromoType.cs" />
+    <Compile Include="ShipR.Entities\DiscountType.cs" />
+    <Compile Include="ShipR.Entities\Shipping.cs" />
+    <Compile Include="ShipR.Entities\Store.cs" />
+    <Compile Include="ShipR.Entities\Lookup.cs" />
+    <Compile Include="ShipR.Entities\Promo.cs" />
+    <Compile Include="ShipR.Entities\User.cs" />
+    <Compile Include="ShipR.Project\Controls\ShipPromoText.ascx.cs">
+      <DependentUpon>ShipPromoText.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\ShipPromoText.ascx.designer.cs">
+      <DependentUpon>ShipPromoText.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\SingleTextBox.ascx.cs">
+      <DependentUpon>SingleTextBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\SingleTextBox.ascx.designer.cs">
+      <DependentUpon>SingleTextBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\Duration.ascx.cs">
+      <DependentUpon>Duration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\Duration.ascx.designer.cs">
+      <DependentUpon>Duration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\MultilineText.ascx.cs">
+      <DependentUpon>MultilineText.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\MultilineText.ascx.designer.cs">
+      <DependentUpon>MultilineText.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\PromoType.ascx.cs">
+      <DependentUpon>PromoType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\PromoType.ascx.designer.cs">
+      <DependentUpon>PromoType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\ShipMethodSelector.ascx.cs">
+      <DependentUpon>ShipMethodSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\ShipMethodSelector.ascx.designer.cs">
+      <DependentUpon>ShipMethodSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\StoreSelector.ascx.cs">
+      <DependentUpon>StoreSelector.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\Controls\StoreSelector.ascx.designer.cs">
+      <DependentUpon>StoreSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipR.Project\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipR.Project\Default.Master.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\Default.Master.designer.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ShipR.Project\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipR.Project\Setup.aspx.cs">
+      <DependentUpon>Setup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipR.Project\Setup.aspx.designer.cs">
+      <DependentUpon>Setup.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ShipR.Project\Controls\ShipPromoText.ascx" />
+    <Content Include="ShipR.Project\Controls\SingleTextBox.ascx" />
+    <Content Include="ShipR.Project\Controls\Duration.ascx" />
+    <Content Include="ShipR.Project\Controls\MultilineText.ascx" />
+    <Content Include="ShipR.Project\Controls\PromoType.ascx" />
+    <Content Include="ShipR.Project\Controls\ShipMethodSelector.ascx" />
+    <Content Include="ShipR.Project\Controls\StoreSelector.ascx" />
+    <Content Include="ShipR.Project\Default.Master" />
+    <Content Include="ShipR.Project\Style\base-min.css" />
+    <Content Include="ShipR.Project\Style\default\images\body-bg.png" />
+    <Content Include="ShipR.Project\Style\default\images\hd-bg.png" />
+    <Content Include="ShipR.Project\Style\default\images\hd-logo.png" />
+    <Content Include="ShipR.Project\Style\default\images\nv-01-0.png" />
+    <Content Include="ShipR.Project\Style\default\images\nv-01-1.png" />
+    <Content Include="ShipR.Project\Style\default\images\nv-02-0.png" />
+    <Content Include="ShipR.Project\Style\default\images\nv-02-1.png" />
+    <Content Include="ShipR.Project\Style\default\images\nv-03-0.png" />
+    <Content Include="ShipR.Project\Style\default\images\nv-03-1.png" />
+    <Content Include="ShipR.Project\Style\default\images\nv-bg.png" />
+    <Content Include="ShipR.Project\Style\default\style.css" />
+    <Content Include="ShipR.Project\Style\reset-fonts-grids.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="App_LocalResources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Metadata\deploymentTemplates\apiappconfig.azureresource.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\ShipR1.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
