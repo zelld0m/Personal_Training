@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
+
 namespace MVCDEMO.Models
 {
-    public class PersonContext:DbContext
+    public class EmployeeContext :DbContext
     {
-        public DbSet<Person> Persons { get; set; }
-
+        public DbSet<Employee> Employee { get; set; }
     }
 }

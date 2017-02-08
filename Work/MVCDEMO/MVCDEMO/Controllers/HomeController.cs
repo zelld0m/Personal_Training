@@ -26,31 +26,5 @@ namespace MVCDEMO.Controllers
 
             return View();
         }
-        public ActionResult Countries()
-        {
-
-            // THIS IS NOT THE BEST PRACTICE  
-            //it just shows that it is possible to use 
-            //this kind of coding
-            ViewBag.Countries = new List<string>()
-            {
-                "INDIA",
-                "US",
-                "CANADA"
-            };
-            return View();
-
-            // THIS IS NOT THE BEST PRACTICE  
-            //it just shows that it is possible to use 
-            //this kind of coding
-
-            //ViewData["Countries"] = new List<string>()
-            //{
-            //    "India",
-            //    "Us",
-            //    "Canada"
-            //};
-            //return View();
-        }
     }
 }
