@@ -39,6 +39,18 @@ namespace MVCDEMO.Controllers
                 "CANADA"
             };
             return View();
+
+            // THIS IS NOT THE BEST PRACTICE  
+            //it just shows that it is possible to use 
+            //this kind of coding
+
+            //ViewData["Countries"] = new List<string>()
+            //{
+            //    "India",
+            //    "Us",
+            //    "Canada"
+            //};
+            //return View();
         }
     }
 }
