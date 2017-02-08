@@ -25,5 +25,16 @@ namespace MVCDEMO.Controllers
                 //};
             return View(employee);
         }
+
+
+        public ActionResult Index()
+        {
+            EmployeeContext employeeContext = new EmployeeContext();
+            List<Employee> employees = employeeContext.Employee.ToList();
+
+
+            return View(employees);
+
+        }
     }
 }
