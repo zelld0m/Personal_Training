@@ -80,7 +80,6 @@
         </div>
     </form>
 
-
     <!---- FOOTER -->
     <footer class="footer-pos">
         <div class="container">
@@ -89,9 +88,7 @@
 
         </div>
     </footer>
-
     <!---- FOOTER END-->
-
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
