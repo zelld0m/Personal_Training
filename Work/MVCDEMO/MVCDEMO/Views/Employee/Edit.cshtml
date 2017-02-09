@@ -1,0 +1,111 @@
+﻿@model MVCDEMO.Models.Employee
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <h4>Employee</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.EmployeeId)
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+
+
+            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*   @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })*@
+                @* Dropdownlist *@
+                @Html.DropDownList("Gender", new List<SelectListItem>{
+           new SelectListItem {Text = "Male",Value="Male" },
+           new SelectListItem {Text = "Female",Value="Female" }
+        }, "Select Gender",htmlAttributes:new { @class="control-label col-md-5"})
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentId, "Department", htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+            <div class="col-md-10">
+                @Html.DropDownList("HR DEPARTMENTS", new List<SelectListItem>{
+                new SelectListItem {Text = "IT",Value="1" },
+                new SelectListItem {Text = "HR",Value="2" },
+                new SelectListItem {Text = "Payroll",Value="3" }
+            }, "Select Department", htmlAttributes: new { @class = "control-label col-md-5" })
+            </div>
+            @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <tr>
+        <td>
+            <b>Employee ID:</b>
+        </td>
+        <td>
+            @Model.EmployeeId
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Name: </b>
+        </td>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <td>
+            <b>Gender: </b>
+        </td>
+        <td>@Model.Gender</td>
+    </tr>
+    <tr>
+        <td>
+            <b>City</b>
+        </td>
+        <td>@Model.City</td>
+    </tr>
+    <tr>
+        <td>
+            <b></b>
+        </td>
+        <td></td>
+    </tr>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ViewAllEmployee", "Employee")
+</div>

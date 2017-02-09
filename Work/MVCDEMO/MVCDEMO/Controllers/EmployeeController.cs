@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCDEMO.Models;
+using System.Net;
 
 namespace MVCDEMO.Controllers
 {
@@ -17,11 +18,8 @@ namespace MVCDEMO.Controllers
         {
             //EmployeeContext employeeContext = new EmployeeContext();
             //List<Employee> employees = employeeContext.Employee.Where(emp =>emp.DepartmentId == departmentId).ToList();
-
             List<Employee> employees = db.employee.Where(emp => emp.DepartmentId == departmentId).ToList();
-
             return View(employees);
-            
         }
         // GET: Employee
         public ActionResult Details(int id)
@@ -29,9 +27,6 @@ namespace MVCDEMO.Controllers
             //EmployeeContext employeeContext = new EmployeeContext();
             //Employee employee = employeeContext.Employee.Single(emp => emp.EmployeeId == id);
             Employee employee = db.employee.Single(emp => emp.EmployeeId == id);
-
-
-
             #region Change To get Data From Database
             // Employee employee = new Employee()
             //{
@@ -53,8 +48,8 @@ namespace MVCDEMO.Controllers
             return View(employees);
         }
 
-
-
+        #region CRUD
+        #region Create
         [HttpGet]
         public ActionResult Create()
         {
@@ -65,33 +60,40 @@ namespace MVCDEMO.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
         {
-
             if (ModelState.IsValid)
             {
                 db.employee.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("ViewAllEmployee");
             }
+            return View(employee);
+        }
+        #endregion Create End
+        #region Edit
 
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = db.employee.Find(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
             return View(employee);
         }
 
-        //[HttpPost]
-        //public ActionResult Create(FormCollection formCollection)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
 
-        //    }
-        //    foreach (string key in formCollection.AllKeys)
-        //    {
-        //        Response.Write("Key " + key + "  ");
-        //        Response.Write(formCollection[key]);
-        //        Response.Write("<br/>");
-        //    }
-        //    return View();
-        //}
 
+        #endregion Edit End
+
+        #region Delete
+
+        #endregion Delete End
+
+        #endregion CRUD END
 
     }
 }
