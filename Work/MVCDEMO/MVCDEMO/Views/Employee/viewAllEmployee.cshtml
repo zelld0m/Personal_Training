@@ -8,7 +8,9 @@
 
 <h2>viewAllEmployee</h2>
 
-
+<p>
+    @Html.ActionLink("Create New","Create")
+</p>
 
 <table style="font-family:Arial">
     <tr>
@@ -30,29 +32,35 @@
     </tr>
 </table>
 
-@foreach (var item in @Model)
-{
-    <tr class="col-lg-10">
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeId)
-        </td>&nbsp;&nbsp;&nbsp;
-        <td >
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>&nbsp;&nbsp;&nbsp;
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>&nbsp;&nbsp;&nbsp;
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>&nbsp;&nbsp;&nbsp;
-        <th>
-            @Html.DisplayFor(modelItem => item.DepartmentId)
-        </th>
-       
-    </tr>
-    <br />
-
-}
+    @foreach (var item in @Model)
+    {
+        <br />
+         <div class="container">
+             <tr>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.EmployeeId)
+                 </td>&nbsp;&nbsp;&nbsp;
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Name)
+                 </td>&nbsp;&nbsp;&nbsp;
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Gender)
+                 </td>&nbsp;&nbsp;&nbsp;
+                 <td>
+                     @Html.DisplayFor(modelItem => item.City)
+                 </td>&nbsp;&nbsp;&nbsp;
+                 <td>
+                     @Html.DisplayFor(modelItem => item.DepartmentId)
+                 </td>
+                 <td>
+                     @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId })
+                     @Html.ActionLink("Details", "Details", new { id = item.EmployeeId })
+                     @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
+                 </td>
+             </tr>
+         </div>
+   
+    }
 <td>
     @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
         @Html.ActionLink("Details", "Details", { id = item.ID })  |
