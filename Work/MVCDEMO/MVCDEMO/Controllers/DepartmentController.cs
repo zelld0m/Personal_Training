@@ -8,12 +8,15 @@ namespace MVCDEMO.Controllers
 {
     public class DepartmentController : Controller
     {
+
+
+        private DataContext db = new DataContext();    // Use this as database connection
         // GET: Department
         public ActionResult Index()
         {
 
-            EmployeeContext employeeContext = new EmployeeContext();
-            List<Department> departments= employeeContext.Department.ToList();
+          //  EmployeeContext employeeContext = new EmployeeContext();
+            List<Department> departments= db.Department.ToList();
             return View(departments);
         }
     }

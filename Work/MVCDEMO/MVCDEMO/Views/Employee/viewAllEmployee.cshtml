@@ -12,7 +12,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <div style="font-family:Arial">
-    <table>
+    <table border="1" >
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.EmployeeId)
@@ -28,6 +28,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DepartmentId)
+            </th>
+            <th>
+                Action
             </th>
         </tr>
 
@@ -59,11 +62,12 @@
         }
     </table>
 </div>
-<td>
-    @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Details", "Details", { id = item.ID })  |
-        @Html.ActionLink("Delete", "Delete", { id = item.ID })*@
-</td>
+<div style="font-family:Arial">
+    <b>
+        @Html.ActionLink("Return to Home", "index", "Home")
+    </b>
+</div>
+
 
 
 

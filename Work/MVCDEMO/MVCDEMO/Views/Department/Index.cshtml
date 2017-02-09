@@ -16,6 +16,8 @@
                 @Html.ActionLink(department.Name, "Index", "Employee", new { departmentId = department.ID },null)
             </li>
         }
+
+        @Html.ActionLink("Back to All Employee","ViewAllEmployee","Employee")
     </ul>
 
 </div>
