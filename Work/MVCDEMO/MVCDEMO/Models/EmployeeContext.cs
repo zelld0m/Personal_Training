@@ -10,5 +10,7 @@ namespace MVCDEMO.Models
     public class EmployeeContext :DbContext
     {
         public DbSet<Employee> Employee { get; set; }
+        public DbSet<Department> Department { get; set; }
+
     }
 }
