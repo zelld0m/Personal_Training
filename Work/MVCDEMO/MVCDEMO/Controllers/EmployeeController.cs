@@ -61,20 +61,20 @@ namespace MVCDEMO.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
-        //{
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
+        {
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.employee.Add(employee);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
+            if (ModelState.IsValid)
+            {
+                db.employee.Add(employee);
+                db.SaveChanges();
+                return RedirectToAction("ViewAllEmployee");
+            }
 
-        //    return View(employee);
-        //}
+            return View(employee);
+        }
 
         //[HttpPost]
         //public ActionResult Create(FormCollection formCollection)
