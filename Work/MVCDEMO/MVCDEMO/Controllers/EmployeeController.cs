@@ -72,7 +72,7 @@ namespace MVCDEMO.Controllers
         #endregion Create End
 
         #region Edit
- 
+        
         public ActionResult Edit(int? id)  // DATA REQUEST TO BE SHOWN ON EDIT PAGE
         {
             if (id == null)
@@ -103,11 +103,34 @@ namespace MVCDEMO.Controllers
         #endregion Edit End
 
         #region Delete
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = db.employee.Find(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
+        }
 
+        // POST: Employeesxx/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Employee employee = db.employee.Find(id);
+            db.employee.Remove(employee);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         #endregion Delete End
 
         #endregion CRUD END
 
-       
+
     }
 }
