@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MVCDEMO.Models;
 using System.Net;
+using System.Data.Entity;
 
 namespace MVCDEMO.Controllers
 {
@@ -71,7 +72,7 @@ namespace MVCDEMO.Controllers
         #endregion Create End
         #region Edit
 
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id)  // DATA REQUEST TO BE SHOWN ON EDIT PAGE
         {
             if (id == null)
             {
@@ -85,7 +86,18 @@ namespace MVCDEMO.Controllers
             return View(employee);
         }
 
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(employee).State = EntityState.Modified;  // entityState is used for Delete ,update
+                db.SaveChanges();
+                return RedirectToAction("ViewAllEmployee");
+            }
+            return View(employee);
+        }
 
         #endregion Edit End
 
