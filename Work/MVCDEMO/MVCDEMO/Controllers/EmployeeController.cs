@@ -30,7 +30,7 @@ namespace MVCDEMO.Controllers
 
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);   // this will redirect to badrequest 
             }
             Employee employee = db.employee.Find(id);
             if (employee == null)
