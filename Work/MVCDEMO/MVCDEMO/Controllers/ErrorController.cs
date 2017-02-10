@@ -34,5 +34,12 @@ namespace MVCDEMO.Controllers
             Response.StatusCode = 500;
             return View("Error500");
         }
+
+        [HandleError]
+        public ActionResult NotFound()  // File Not Found
+        {
+            Response.StatusCode = 404;
+            return View("NotFound");
+        }
     }
 }

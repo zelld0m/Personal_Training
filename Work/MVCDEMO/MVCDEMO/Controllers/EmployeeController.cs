@@ -23,11 +23,23 @@ namespace MVCDEMO.Controllers
             return View(employees);
         }
         // GET: Employee
-        public ActionResult Details(int id)
+
+        //put the int? on an action means that you can have the route satisfied without id( in that case, MVC will pass null)
+        public ActionResult Details(int? id)
         {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = db.employee.Find(id);
+            if (employee == null)
+            {
+                return RedirectToAction ("NotFound","Error","Error");
+            }
             //EmployeeContext employeeContext = new EmployeeContext();
             //Employee employee = employeeContext.Employee.Single(emp => emp.EmployeeId == id);
-            Employee employee = db.employee.Single(emp => emp.EmployeeId == id);
+           // Employee employee = db.employee.Single(emp => emp.EmployeeId == id);      
             #region Change To get Data From Database
             // Employee employee = new Employee()
             //{
@@ -40,16 +52,9 @@ namespace MVCDEMO.Controllers
             return View(employee);
         }
 
-        public ActionResult ViewAllEmployee()
-        {
-            //EmployeeContext employeeContext = new EmployeeContext();
-            //List<Employee> employees = employeeContext.Employee.ToList();
-            //--------------------------------------------------------------------
-            List<Employee> employees = db.employee.ToList();
-            return View(employees);
-        }
 
         #region CRUD
+
         #region Create
         [HttpGet]
         public ActionResult Create()
@@ -71,8 +76,19 @@ namespace MVCDEMO.Controllers
         }
         #endregion Create End
 
-        #region Edit
-        
+        #region Read
+        public ActionResult ViewAllEmployee()
+        {
+            //EmployeeContext employeeContext = new EmployeeContext();
+            //List<Employee> employees = employeeContext.Employee.ToList();
+            //--------------------------------------------------------------------
+            List<Employee> employees = db.employee.ToList();
+            return View(employees);
+        }
+        #endregion
+
+        #region Update
+
         public ActionResult Edit(int? id)  // DATA REQUEST TO BE SHOWN ON EDIT PAGE
         {
             if (id == null)
@@ -82,7 +98,8 @@ namespace MVCDEMO.Controllers
             Employee employee = db.employee.Find(id);
             if (employee == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound");
+                //return HttpNotFound();
             }
             return View(employee);
         }
@@ -100,7 +117,7 @@ namespace MVCDEMO.Controllers
             return View(employee);
         }
 
-        #endregion Edit End
+        #endregion Update End
 
         #region Delete
         public ActionResult Delete(int? id)
@@ -125,7 +142,7 @@ namespace MVCDEMO.Controllers
             Employee employee = db.employee.Find(id);
             db.employee.Remove(employee);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ViewAllEmployee");
         }
         #endregion Delete End
 
