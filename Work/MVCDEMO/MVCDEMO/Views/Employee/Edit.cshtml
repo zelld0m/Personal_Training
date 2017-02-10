@@ -18,48 +18,49 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.EmployeeId)
 
-       
-
-        <div class="form-group"> <!-- Name-->
+        <div class="form-group">
+            <!-- Name-->
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div><!-- Name End-->
 
-        <div class="form-group"> <!--Gender-->
-
-
-            @*LABEL*@
+        <div class="form-group">
+            <!--Gender-->
+      @*-----------------------------------------------LABEL---------------------------------------------*@
             @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-         @*         @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })*@
-                @* Dropdownlist *@
+            <div class="col-md-9">
+
+       @* @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })*@
+       @*-------------------------------------- Dropdownlist------------------------------------------------------- *@
                 @Html.DropDownList("Gender", new List<SelectListItem>{
-           new SelectListItem {Text = "Male",Value="Male" },
-           new SelectListItem {Text = "Female",Value="Female" }
-        }, "Select Gender", htmlAttributes: new { @class = "control-label col-md-5" })
+               new SelectListItem {Text = "Male",Value="Male" },
+               new SelectListItem {Text = "Female",Value="Female" }
+            }, "Select Gender", htmlAttributes: new { @class = "control-label col-md-5" })
 
                 @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
             </div>
         </div><!--Gender End-->
 
-        <div class="form-group"> <!--CITY-->
+        <div class="form-group">
+            <!--CITY-->
             @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
             </div>
         </div><!--CITY-->
 
-        <div class="form-group"><!--DEPARTMENT   DROPDOWN NOT WORKING WELL BUT STILL SAVING-->  
+        <div class="form-group">
+            <!--DEPARTMENT   DROPDOWN NOT WORKING WELL BUT STILL SAVING-->
             @Html.LabelFor(model => model.DepartmentId, "Department", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-         @*       @Html.EditorFor(model => model.DepartmentId, new { htmlAttributes = new { @class = "form-control" } })*@
-               <!-- this must match the model " DepartmentId" to be able to save   Bug Fixed-->
-                 @Html.DropDownList("DepartmentId", new List<SelectListItem>{  
-               
+            <div class="col-md-9">
+                @*       @Html.EditorFor(model => model.DepartmentId, new { htmlAttributes = new { @class = "form-control" } })*@
+                <!-- this must match the model " DepartmentId" to be able to save   Bug Fixed-->
+                @Html.DropDownList("DepartmentId", new List<SelectListItem>{
+
                 new SelectListItem {Text = "IT",Value="1" },
                 new SelectListItem {Text = "HR",Value="2" },
                 new SelectListItem {Text = "Payroll",Value="3" }
@@ -67,7 +68,7 @@
             </div>
             @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
         </div><!--DEPARTMENT END-->
-        
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -78,7 +79,7 @@
     <div>
         @Html.ActionLink("Back to List", "ViewAllEmployee", "Employee")
     </div>
-          
+
 }
 @*  <tr>
         <td>

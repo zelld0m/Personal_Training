@@ -3,7 +3,7 @@
 @using MVCDEMO.Models;
 @model IEnumerable<MVCDEMO.Models.Employee>
 @{
-    ViewBag.Title = "viewAllEmployee";
+    ViewBag.Title = "View All Employee";
 }
 
 <h2>viewAllEmployee</h2>
@@ -12,7 +12,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <div style="font-family:Arial">
-    <table border="1">
+    <table border="1" >
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.EmployeeId)
@@ -64,9 +64,10 @@
 </div>
 <div style="font-family:Arial">
     <b>
-        @Html.ActionLink("Return to Home", "index", "Home")
+        @Html.ActionLink("Return to Home", "Index", "Home")
     </b>
 </div>
+
 
 
 

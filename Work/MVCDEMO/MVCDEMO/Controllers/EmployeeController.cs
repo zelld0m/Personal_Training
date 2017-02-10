@@ -14,7 +14,7 @@ namespace MVCDEMO.Controllers
 
 
         public DataContext db = new DataContext();    // Use this as database connection
-
+        
         public ActionResult Index(int departmentId)
         {
             //EmployeeContext employeeContext = new EmployeeContext();
@@ -70,8 +70,9 @@ namespace MVCDEMO.Controllers
             return View(employee);
         }
         #endregion Create End
-        #region Edit
 
+        #region Edit
+ 
         public ActionResult Edit(int? id)  // DATA REQUEST TO BE SHOWN ON EDIT PAGE
         {
             if (id == null)
@@ -107,5 +108,6 @@ namespace MVCDEMO.Controllers
 
         #endregion CRUD END
 
+       
     }
 }
