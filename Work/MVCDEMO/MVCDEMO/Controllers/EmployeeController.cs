@@ -66,8 +66,10 @@ namespace MVCDEMO.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
         {
+            TryUpdateModel(employee);    // use tryUpdate to verify  
             if (ModelState.IsValid)
             {
+                
                 db.employee.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("ViewAllEmployee");
@@ -89,7 +91,7 @@ namespace MVCDEMO.Controllers
 
         #region Update
 
-        public ActionResult Edit(int? id)  // DATA REQUEST TO BE SHOWN ON EDIT PAGE
+        public ActionResult Edit(int? id)  // DATA REQUEST TO BE SHOWN ON EDIT PAGE     ? is for null acceptance entry 
         {
             if (id == null)
             {
@@ -147,7 +149,5 @@ namespace MVCDEMO.Controllers
         #endregion Delete End
 
         #endregion CRUD END
-
-
     }
 }
