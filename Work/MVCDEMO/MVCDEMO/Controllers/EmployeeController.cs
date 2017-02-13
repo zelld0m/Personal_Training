@@ -67,7 +67,7 @@ namespace MVCDEMO.Controllers
         public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
         {
             TryUpdateModel(employee);    // use tryUpdate to verify  
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)       // to verify
             {
                 
                 db.employee.Add(employee);
@@ -106,11 +106,28 @@ namespace MVCDEMO.Controllers
             return View(employee);
         }
 
+        //[ActionNameAttribute("Edit")]
+        //public ActionResult Edit(int id)
+        //{
+        //    Employee employee = db.employee.Find(id);
+        //    if (employee == null)
+        //    {
+        //        return RedirectToAction("NotFound");
+        //    }
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry()
+        //    }
+        //    return View(employee);
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
+        public ActionResult Edit([Bind( Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
         {
-            if (ModelState.IsValid)
+          
+          
+             if (ModelState.IsValid)// to verify
             {
                 db.Entry(employee).State = EntityState.Modified;  // entityState is used for Delete ,update
                 db.SaveChanges();
@@ -122,23 +139,23 @@ namespace MVCDEMO.Controllers
         #endregion Update End
 
         #region Delete
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Employee employee = db.employee.Find(id);
-            if (employee == null)
-            {
-                return HttpNotFound();
-            }
-            return View(employee);
-        }
+        //public ActionResult Delete(int? id)  // this is applicable on Delete view
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Employee employee = db.employee.Find(id);
+        //    if (employee == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(employee);
+        //}
 
         // POST: Employeesxx/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Employee employee = db.employee.Find(id);
@@ -147,7 +164,6 @@ namespace MVCDEMO.Controllers
             return RedirectToAction("ViewAllEmployee");
         }
         #endregion Delete End
-
         #endregion CRUD END
     }
 }
