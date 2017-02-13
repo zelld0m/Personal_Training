@@ -14,7 +14,7 @@ namespace MVCDEMO.Controllers
 
 
         public DataContext db = new DataContext();    // Use this as database connection
-        
+
         public ActionResult Index(int departmentId)
         {
             //EmployeeContext employeeContext = new EmployeeContext();
@@ -39,7 +39,7 @@ namespace MVCDEMO.Controllers
             }
             //EmployeeContext employeeContext = new EmployeeContext();
             //Employee employee = employeeContext.Employee.Single(emp => emp.EmployeeId == id);
-           // Employee employee = db.employee.Single(emp => emp.EmployeeId == id);      
+            // Employee employee = db.employee.Single(emp => emp.EmployeeId == id);      
             #region Change To get Data From Database
             // Employee employee = new Employee()
             //{
@@ -66,6 +66,10 @@ namespace MVCDEMO.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
         {
+            if (String.IsNullOrEmpty(employee.Name) || string.IsNullOrWhiteSpace(employee.Name)){
+                ModelState.AddModelError("Name", "The Name Field is Required");
+            }
+
             TryUpdateModel(employee);    // use tryUpdate to verify  
             if (ModelState.IsValid)       // to verify
             {
@@ -122,13 +126,24 @@ namespace MVCDEMO.Controllers
         //}
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind( Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
+       // [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind( /*Exclude ="Name"*/Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
         {
-          
-          
-             if (ModelState.IsValid)// to verify
+            //Employee employeeFromDb = db.employee.Single(x => x.EmployeeId == employee.EmployeeId);
+
+            //employeeFromDb.Gender = employee.Gender;
+            //employeeFromDb.City = employee.City;
+            //employeeFromDb.DepartmentId = employee.DepartmentId;
+            //employee.Name = employeeFromDb.Name;
+
+            if (String.IsNullOrEmpty(employee.Name) || string.IsNullOrWhiteSpace(employee.Name))
             {
+                ModelState.AddModelError("Name", "The Name Field is Required");
+            }
+
+            if (ModelState.IsValid)// to verify
+            {
+             //   db.ObjectStateManager.ChangeObjectState(employeeFromDb, EntityState.Modified);   used on Entity framwork datamodel
                 db.Entry(employee).State = EntityState.Modified;  // entityState is used for Delete ,update
                 db.SaveChanges();
                 return RedirectToAction("ViewAllEmployee");

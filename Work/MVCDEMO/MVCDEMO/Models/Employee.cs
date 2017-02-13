@@ -11,7 +11,7 @@ namespace MVCDEMO.Models
     {
 
         public int EmployeeId { get; set; }       //  
-        [Required]
+                    //required removed To unEdit Name in Edit
         public string Name { get; set; }
         [Required]
         public string Gender { get; set; }
