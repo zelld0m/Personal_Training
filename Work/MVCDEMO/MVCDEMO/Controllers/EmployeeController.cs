@@ -104,7 +104,7 @@ namespace MVCDEMO.Controllers
             Employee employee = db.employee.Find(id);
             if (employee == null)
             {
-                return RedirectToAction("NotFound");
+                return RedirectToAction("NotFound","Error","Error");
                 //return HttpNotFound();
             }
             return View(employee);

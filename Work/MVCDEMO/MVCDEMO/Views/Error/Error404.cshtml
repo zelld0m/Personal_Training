@@ -5,41 +5,7 @@
 
 
 
-<h1>ERROR 404  FILE DOES NOT EXIST</h1>
-<div style="font-size :14px">
-    There can be Many ways of implementing error pages like changing the webconfig for general,
-    the other one is  on the Controller
-</div>
-<div class="container">
-    <div class="glyphicon-text-color " style="background-color:cadetblue" >
-        
-        <p style="font-size:12px">
-            public ActionResult Edit(int? id)  // DATA REQUEST TO BE SHOWN ON EDIT PAGE <br />
-            {<br />
-            if (id == null)<br />
-            {<br />
-            <p style="background-color:burlywood">return new HttpStatusCodeResult(HttpStatusCode.BadRequest);<br /><p/>
-            }<br />
-            Employee employee = db.employee.Find(id);<br />
-            if (employee == null)<br />
-            {<br />
+<h1>Error 404</h1>
 
-            <div style="background-color:lightsalmon" class="text-warning">
-                <br />
-                return RedirectToAction("NotFound");<br />
-            </div><br />
-            //return HttpNotFound();<br />
-            }<br />
-            return View(employee);<br />
-            }<br />
-        </p>
-    </div>
-    <div>
-        in details i used the NotFound.cshtml add
-        <p style="background-color:coral">"/id"   </p>
-        in the Url
-        @Html.ActionLink("Go to Details with /ID=100", "Details/100", "Employee")
-    </div>
-</div>
 
 @Html.ActionLink("Return to Home", "Index", "Home")
