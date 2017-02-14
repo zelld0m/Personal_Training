@@ -110,20 +110,7 @@ namespace MVCDEMO.Controllers
             return View(employee);
         }
 
-        //[ActionNameAttribute("Edit")]
-        //public ActionResult Edit(int id)
-        //{
-        //    Employee employee = db.employee.Find(id);
-        //    if (employee == null)
-        //    {
-        //        return RedirectToAction("NotFound");
-        //    }
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry()
-        //    }
-        //    return View(employee);
-        //}
+
 
         [HttpPost]
        // [ValidateAntiForgeryToken]
