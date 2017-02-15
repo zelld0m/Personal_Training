@@ -25,9 +25,6 @@ namespace MVCDEMO.Controllers
         // GET: Employee
 
         //put the int? on an action means that you can have the route satisfied without id( in that case, MVC will pass null)
-
-  
-
         public ActionResult Details(string id)  // id turns into String 
         {
             List<Employee> employees = new List<Employee>();
