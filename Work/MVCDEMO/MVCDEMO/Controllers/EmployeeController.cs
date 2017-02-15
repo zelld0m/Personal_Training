@@ -97,7 +97,7 @@ namespace MVCDEMO.Controllers
         #region Create
         [HttpGet]
         public ActionResult Create()
-        {
+        { 
             return View();
         }
 
