@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using MVCDEMO.Models;
 using System.Net;
 using System.Data.Entity;
-
+using MVCDEMO.Models;
 namespace MVCDEMO.Controllers
 {
     public class EmployeeController : Controller
@@ -98,6 +98,7 @@ namespace MVCDEMO.Controllers
         [HttpGet]
         public ActionResult Create()
         { 
+            ViewBag.DepartmentId = new SelectList(db.Department, "Id", "Name", "1");// dropdownlist Success (Used on Create View)
             return View();
         }
 
@@ -109,8 +110,7 @@ namespace MVCDEMO.Controllers
             {
                 ModelState.AddModelError("Name", "The Name Field is Required");
             }
-
-            TryUpdateModel(employee);    // use tryUpdate to verify  
+              TryUpdateModel(employee);    // use tryUpdate to verify  
             if (ModelState.IsValid)       // to verify
             {
 

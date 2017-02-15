@@ -23,6 +23,7 @@
                 @Html.LabelFor(model => model.Gender,"Gender")
             </div>
             <div class="editor-field">
+            
                 @Html.DropDownList("Gender", new List<SelectListItem>{
                new SelectListItem {Text = "Male",Value="Male" },
                new SelectListItem {Text = "Female",Value="Female" }
@@ -41,11 +42,13 @@
                 @Html.LabelFor(model => model.DepartmentId,"Department")
             </div>
             <div class="editor-field">
-                @Html.DropDownList("DepartmentId", new List<SelectListItem>{
-               new SelectListItem {Text = "IT",Value="1" },
-               new SelectListItem {Text = "HR",Value="2" },
+                @Html.DropDownList("DepartmentId", "Select Department") @*//took data from database using viewbag  config on (EmployeeController/Create)*@ 
+            
+              @*@Html.DropDownList("DepartmentId", new List<SelectListItem>{
+                new SelectListItem {Text = "IT",Value="1" },
+                new SelectListItem {Text = "HR",Value="2" },
                 new SelectListItem {Text = "Payroll",Value="3" }},
-                "Select Department")
+                "Select Department")*@
            
                 @Html.ValidationMessageFor(model => model.DepartmentId)
             </div>
