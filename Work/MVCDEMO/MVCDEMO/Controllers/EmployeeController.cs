@@ -26,6 +26,39 @@ namespace MVCDEMO.Controllers
 
         //put the int? on an action means that you can have the route satisfied without id( in that case, MVC will pass null)
 
+  
+
+        public ActionResult Details(string id)  // id turns into String 
+        {
+            List<Employee> employees = new List<Employee>();
+            List<int> idInt = new List<int>();
+            List<string> idString = new List<string>(id.Split('-'));  // to change seperator change  comma "  ,  "   to  "  -  " 
+            string nullIds = "ID Does Not Exist : ";
+            for (int i = 0; i <= idString.Count - 1; i++)
+            {
+                idInt.Add(Convert.ToInt32(idString[i]));
+            }
+            for (int i = 0; i <= idInt.Count - 1; i++)
+            {
+                if (db.employee.Find(idInt[i]) != null)
+                {
+                    employees.Add(db.employee.Find(idInt[i]));
+                }
+                else // not working for now 
+                {
+                    nullIds +=  Convert.ToString((idInt[i])) + " , ";  // Find how to return nullIds to view hahaha
+                }
+            }
+            if(nullIds != "ID Does Not Exist : ")
+            {
+                ViewData["nullIds"] = " "+nullIds ;
+            }
+            if (employees == null ) // not working well
+            {
+                return RedirectToAction("NotFound", "Error", "Error");
+            }
+            return View(employees);
+        }
         public ActionResult Details2(int? id, int? id2, int? id3, int? id4, int? id5)
         {
             //if (id == null)
@@ -62,35 +95,6 @@ namespace MVCDEMO.Controllers
             }
             return View(employees);
         }
-
-        public ActionResult Details(string id)
-        {
-            List<Employee> employees = new List<Employee>();
-            List<int> idInt = new List<int>();
-            List<string> idString = new List<string>(id.Split('-'));  // to change seperator change  comma "  ,  "   to  "  -  " 
-            string nullIds = "ID Does Not Exist : ";
-            for (int i = 0; i <= idString.Count - 1; i++)
-            {
-                idInt.Add(Convert.ToInt32(idString[i]));
-            }
-            for (int i = 0; i <= idInt.Count - 1; i++)
-            {
-                if (db.employee.Find(idInt[i]) != null)
-                {
-                    employees.Add(db.employee.Find(idInt[i]));
-                }
-                else // not working for now 
-                {
-                    nullIds +=  Convert.ToString((idInt[i])) + " , ";  // Find how to return nullIds to view hahaha
-                }
-            }
-            if (employees == null)
-            {
-                return RedirectToAction("NotFound", "Error", "Error");
-            }
-            return View(employees);
-        }
-
         #region CRUD
 
         #region Create
