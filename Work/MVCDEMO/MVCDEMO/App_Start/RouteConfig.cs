@@ -16,8 +16,25 @@ namespace MVCDEMO
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Employee", action = "viewAllEmployee", id = UrlParameter.Optional }
+       
             );
+
+            routes.MapRoute(
+               name: "Employee details2",
+               url: "{Controller}/{action}/{id}/{id2}/{id3}/{id4}/{id5}",
+               defaults: new { Controller = "Employee", action = "Details2", id = UrlParameter.Optional, id2 = UrlParameter.Optional, id3 = UrlParameter.Optional, id4 = UrlParameter.Optional, id5 = UrlParameter.Optional }
+           );
+
+
+            #region Implement Commaseparated for paramters  // Fixed On Controllers 
+            // routes.MapRoute(
+            //    name: "Employee details2",
+            //    url: "{Controller}/{action}/{id}/{id2}/{id3}/{id4}/{id5}",
+            //    defaults: new { Controller = "Employee", action = "multipleDetails", id = UrlParameter.Optional, id2 = UrlParameter.Optional, id3 = UrlParameter.Optional, id4 = UrlParameter.Optional, id5 = UrlParameter.Optional }
+            //);
+            #endregion
+
         }
     }
 }

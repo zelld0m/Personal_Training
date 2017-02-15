@@ -25,33 +25,71 @@ namespace MVCDEMO.Controllers
         // GET: Employee
 
         //put the int? on an action means that you can have the route satisfied without id( in that case, MVC will pass null)
-        public ActionResult Details(int? id)
-        {
 
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);   // this will redirect to badrequest 
-            }
-            Employee employee = db.employee.Find(id);
-            if (employee == null)
-            {
-                return RedirectToAction ("NotFound","Error","Error");
-            }
-            //EmployeeContext employeeContext = new EmployeeContext();
-            //Employee employee = employeeContext.Employee.Single(emp => emp.EmployeeId == id);
-            // Employee employee = db.employee.Single(emp => emp.EmployeeId == id);      
-            #region Change To get Data From Database
-            // Employee employee = new Employee()
+        public ActionResult Details2(int? id, int? id2, int? id3, int? id4, int? id5)
+        {
+            //if (id == null)
             //{
-            //    EmployeeId = 101,
-            //    Name = "John",
-            //    Gender = "Male",
-            //    City = "London"
-            //};
-            #endregion
-            return View(employee);
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);   // this will redirect to badrequest 
+            //}
+            //Employee employee = db.employee.Find(id);
+            List<Employee> employees = new List<Employee>();
+
+            if (db.employee.Find(id) != null)
+            {
+                employees.Add(db.employee.Find(id));
+            }
+
+            if (db.employee.Find(id2) != null)
+            {
+                employees.Add(db.employee.Find(id2));
+            }
+            if (db.employee.Find(id3) != null)
+            {
+                employees.Add(db.employee.Find(id3));
+            }
+            if (db.employee.Find(id4) != null)
+            {
+                employees.Add(db.employee.Find(id4));
+            }
+            if (db.employee.Find(id5) != null)
+            {
+                employees.Add(db.employee.Find(id5));
+            }
+            if (employees == null)
+            {
+                return RedirectToAction("NotFound", "Error", "Error");
+            }
+            return View(employees);
         }
 
+        public ActionResult Details(string id)
+        {
+            List<Employee> employees = new List<Employee>();
+            List<int> idInt = new List<int>();
+            List<string> idString = new List<string>(id.Split('-'));  // to change seperator change  comma "  ,  "   to  "  -  " 
+            string nullIds = "ID Does Not Exist : ";
+            for (int i = 0; i <= idString.Count - 1; i++)
+            {
+                idInt.Add(Convert.ToInt32(idString[i]));
+            }
+            for (int i = 0; i <= idInt.Count - 1; i++)
+            {
+                if (db.employee.Find(idInt[i]) != null)
+                {
+                    employees.Add(db.employee.Find(idInt[i]));
+                }
+                else // not working for now 
+                {
+                    nullIds +=  Convert.ToString((idInt[i])) + " , ";  // Find how to return nullIds to view hahaha
+                }
+            }
+            if (employees == null)
+            {
+                return RedirectToAction("NotFound", "Error", "Error");
+            }
+            return View(employees);
+        }
 
         #region CRUD
 
@@ -66,14 +104,15 @@ namespace MVCDEMO.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
         {
-            if (String.IsNullOrEmpty(employee.Name) || string.IsNullOrWhiteSpace(employee.Name)){
+            if (String.IsNullOrEmpty(employee.Name) || string.IsNullOrWhiteSpace(employee.Name))
+            {
                 ModelState.AddModelError("Name", "The Name Field is Required");
             }
 
             TryUpdateModel(employee);    // use tryUpdate to verify  
             if (ModelState.IsValid)       // to verify
             {
-                
+
                 db.employee.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("ViewAllEmployee");
@@ -104,16 +143,14 @@ namespace MVCDEMO.Controllers
             Employee employee = db.employee.Find(id);
             if (employee == null)
             {
-                return RedirectToAction("NotFound","Error","Error");
+                return RedirectToAction("NotFound", "Error", "Error");
                 //return HttpNotFound();
             }
             return View(employee);
         }
 
-
-
-        [HttpPost]
-       // [ValidateAntiForgeryToken]
+        [HttpPost]  // httpPost is for saving or implementing the data that has beed initiated
+        // [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind( /*Exclude ="Name"*/Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
         {
             //Employee employeeFromDb = db.employee.Single(x => x.EmployeeId == employee.EmployeeId);
@@ -130,7 +167,7 @@ namespace MVCDEMO.Controllers
 
             if (ModelState.IsValid)// to verify
             {
-             //   db.ObjectStateManager.ChangeObjectState(employeeFromDb, EntityState.Modified);   used on Entity framwork datamodel
+                //   db.ObjectStateManager.ChangeObjectState(employeeFromDb, EntityState.Modified);   used on Entity framwork datamodel
                 db.Entry(employee).State = EntityState.Modified;  // entityState is used for Delete ,update
                 db.SaveChanges();
                 return RedirectToAction("ViewAllEmployee");
@@ -141,7 +178,7 @@ namespace MVCDEMO.Controllers
         #endregion Update End
 
         #region Delete
-        //public ActionResult Delete(int? id)  // this is applicable on Delete view
+        //public ActionResult Delete(int? id)  // this is applicable on Delete view to show/get the details from view
         //{
         //    if (id == null)
         //    {
@@ -157,7 +194,7 @@ namespace MVCDEMO.Controllers
 
         // POST: Employeesxx/Delete/5
         [HttpPost, ActionName("Delete")]
-       // [ValidateAntiForgeryToken]
+        // [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Employee employee = db.employee.Find(id);
@@ -167,5 +204,6 @@ namespace MVCDEMO.Controllers
         }
         #endregion Delete End
         #endregion CRUD END
+
     }
 }

@@ -238,6 +238,7 @@
     <Content Include="Views\Error\Error500.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\test.cshtml" />
+    <Content Include="Views\Employee\Details2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,12 +1,12 @@
-﻿@model MVCDEMO.Models.Employee
-
+﻿@*@model MVCDEMO.Models.Employee*@
+@model IEnumerable<MVCDEMO.Models.Employee>
 @{
     ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
 
-<table style="font-family:Arial">
+@*<table style="font-family:Arial">
     <tr>
         <td>
             <b>Employee ID:</b>
@@ -40,4 +40,56 @@
         <td></td>
     </tr>
 </table>
-@Html.ActionLink("Back to List","Index",new { departmentId = Model.DepartmentId })
+@Html.ActionLink("Back to List","Index",new { departmentId = Model.DepartmentId })*@
+
+
+
+@foreach (var item in Model)
+{<table style="font-family:Arial">
+        <tr>
+            <td>
+                <b>Employee ID:</b>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeId) &ndash;
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId })
+            
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Name:</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Gender:</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>City</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Department:</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentId)
+            </td>
+        </tr>
+    </table>
+    <br />
+}
+
