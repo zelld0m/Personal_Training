@@ -12,12 +12,13 @@ namespace MVCDEMO.Models
 
         public int EmployeeId { get; set; }       //  
                     //required removed To unEdit Name in Edit
+        [DisplayAttribute(Name = "NAMETest")]  // USING DISPLAY ATTRIBUTE FROM MODEL
         public string Name { get; set; }
-        [Required]
+        [DisplayFormat(NullDisplayText = "Gender not Specified")]
         public string Gender { get; set; }
         [Required]
         public string City { get; set; }
-        [Required]
+        [Required] 
         public int DepartmentId { get; set; }
     }
 }

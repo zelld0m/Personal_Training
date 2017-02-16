@@ -27,6 +27,9 @@ namespace MVCDEMO.Controllers
         //put the int? on an action means that you can have the route satisfied without id( in that case, MVC will pass null)
         public ActionResult Details(string id)  // id turns into String 
         {
+
+            ViewBag.DepartmentIdNaming = new SelectList(db.Department, "id","Name","1"); // use this on  displaying department name
+
             List<Employee> employees = new List<Employee>();
             List<int> idInt = new List<int>();
             List<string> idString = new List<string>(id.Split('-'));  // to change seperator change  comma "  ,  "   to  "  -  " 
