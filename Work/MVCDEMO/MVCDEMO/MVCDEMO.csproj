@@ -239,6 +239,8 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\test.cshtml" />
     <Content Include="Views\Employee\Details2.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\OpenInNewWindow.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
