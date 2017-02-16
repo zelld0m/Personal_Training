@@ -23,11 +23,23 @@ namespace MVCDEMO.Models
         public string City { get; set; }
         [Required]/* [ScaffoldColumn(false)]*/   // NOT WORKING
         public int DepartmentId { get; set; }
+
+
+        //TABLE ALTERED ADDED Salary,PersonalWebSite, DATEHIRE,EmailAddress,Photo,AlternateText
+        #region NEW ADDED TABLE COLUMN
+
+        //public string HireDate { get; set; } // SUCCESS
+        //public string Salary { get; set; }
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]  //    // fix format for dates
+        //public string PersonalWebSite { get; set; }
+
+
         //[DataType(DataType.EmailAddress)]       // this will open default email client  and open outlook
         //public String EmailAddress { get; set; }
+        //public string Photo { get; set; }
+        //public String AlternateText { get; set; }
 
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",ApplyFormatInEditMode =true)]    // fix format for dates
-        //public DateTime? HireDate { get; set; }
+        #endregion
     }
    
 }
