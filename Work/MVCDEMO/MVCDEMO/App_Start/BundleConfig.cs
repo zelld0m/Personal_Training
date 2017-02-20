@@ -6,7 +6,7 @@ namespace MVCDEMO
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
-        public static void RegisterBundles(BundleCollection bundles)
+        public static void RegisterBundles(BundleCollection bundles)                // USE THIS kind of bundling it will minify css and make it more faster
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
