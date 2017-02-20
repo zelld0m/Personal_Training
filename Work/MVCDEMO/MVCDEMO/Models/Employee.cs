@@ -6,7 +6,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 namespace MVCDEMO.Models
 {
-   // [MetadataType(typeof(EmployeeMetadata))]
+    // [MetadataType(typeof(EmployeeMetadata))]
     [Table("tblEmployee")]          // This type of class needs to be the same as the Database tablename
     public class Employee
     {
@@ -18,8 +18,7 @@ namespace MVCDEMO.Models
         public string Gender { get; set; }
         [Required]
         //[ReadOnly(true)]   //Not working maybe on metadataType it will work  if not working  remove set is the same on getter:setter
-        [DataType(DataType.Url)]
-        [UIHint("OpenInNewWindow")] // downside of this is to open a new window of all links
+     
         public string City { get; set; }
         [Required]/* [ScaffoldColumn(false)]*/   // NOT WORKING
         public int DepartmentId { get; set; }
@@ -28,16 +27,25 @@ namespace MVCDEMO.Models
         //TABLE ALTERED ADDED Salary,PersonalWebSite, DATEHIRE,EmailAddress,Photo,AlternateText
         #region NEW ADDED TABLE COLUMN
 
-        //public string HireDate { get; set; } // SUCCESS
-        //public string Salary { get; set; }
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]  //    // fix format for dates
-        //public string PersonalWebSite { get; set; }
+        [Required]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]  //    // fix format for dates
+        public DateTime HireDate { get; set; } // SUCCESS
 
 
-        //[DataType(DataType.EmailAddress)]       // this will open default email client  and open outlook
-        //public String EmailAddress { get; set; }
-        //public string Photo { get; set; }
-        //public String AlternateText { get; set; }
+        [Required]
+        [DisplayFormat(NullDisplayText = "Salary not Specified")]
+        public decimal Salary { get; set; }
+
+        [DataType(DataType.Url)]
+        [UIHint("OpenInNewWindow")] // downside of this is to open a new window of all links
+        [DisplayFormat(NullDisplayText = "website not Specified")]
+        public string PersonalWebSite { get; set; }
+
+
+        [DataType(DataType.EmailAddress)]       // this will open default email client  and open outlook
+        public String EmailAddress { get; set; }
+        public string Photo { get; set; }
+        public String AlternateText { get; set; }
 
         #endregion
     }

@@ -3,7 +3,7 @@
 @{
 
     ViewBag.Title = "Details";
-    
+
 }
 
 <h2>Details</h2>
@@ -93,24 +93,72 @@
                 <b>Department:</b>
             </td>
             <td>
-                
+
                 @Html.DisplayFor(modelItem => item.DepartmentId)
                 @*<p id="DeptID"></p>*@
-                
+
                 @*<script>
-                    var deptId =@Html.DisplayFor( modelItem => item.DepartmentId);
-                    var y;
-                    switch (deptId) {
-                        case 1: y = "IT";break;
-                        case 2: y = "HR";break; 
-                        case 3: y = "Payroll";break;
-                    }
-                    document.getElementById("DeptID").innerHTML = y;
-                </script>*@  @*Working but only on 1 data*@
-            </td>
-        </tr>
-    </table>
-    <br />
+                        var deptId =@Html.DisplayFor( modelItem => item.DepartmentId);
+                        var y;
+                        switch (deptId) {
+                            case 1: y = "IT";break;
+                            case 2: y = "HR";break;
+                            case 3: y = "Payroll";break;
+                        }
+                        document.getElementById("DeptID").innerHTML = y;
+                    </script>*@  @*Working but only on 1 data*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>EmailAddress:</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>HireDate:</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HireDate)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Salary:</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>PersonalWebSite:</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonalWebSite)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Photo:</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Photo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>AlternateText:</b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlternateText)
+                </td>
+            </tr>
+        </table>
+        <br />
 }
 
 <div>

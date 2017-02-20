@@ -107,7 +107,9 @@ namespace MVCDEMO.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
+       // public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId,HireDate,Salary,PersonalWebSite,EmailAddress,Photo,AlternateText")] Employee employee)
+            public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId,HireDate")] Employee employee)
+        //        public ActionResult Create([Bind(Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
         {
             if (String.IsNullOrEmpty(employee.Name) || string.IsNullOrWhiteSpace(employee.Name))
             {
@@ -131,7 +133,19 @@ namespace MVCDEMO.Controllers
             //EmployeeContext employeeContext = new EmployeeContext();
             //List<Employee> employees = employeeContext.Employee.ToList();
             //--------------------------------------------------------------------
+            Employee employee; // as person
+
             List<Employee> employees = db.employee.ToList();
+            for (int i = 0;i <= 10;i++)
+            {
+
+            }
+            //Employee employeeFromDb =  db.employee.Single(x => x.EmployeeId == employee.);
+            //if(employeeFromDb.Salary == null)
+            //{
+            //    employeeFromDb.Salary = 1;
+            //}
+          
             return View(employees);
         }
         #endregion
@@ -181,7 +195,7 @@ namespace MVCDEMO.Controllers
 
         #endregion Update End
 
-        #region Delete
+       #region Delete
         //public ActionResult Delete(int? id)  // this is applicable on Delete view to show/get the details from view
         //{
         //    if (id == null)
@@ -206,7 +220,7 @@ namespace MVCDEMO.Controllers
             db.SaveChanges();
             return RedirectToAction("ViewAllEmployee");
         }
-        #endregion Delete End
+        #endregion Delete End 
         #endregion CRUD END
 
     }
