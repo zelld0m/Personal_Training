@@ -28,7 +28,8 @@ namespace MVCDEMO.Models
         #region NEW ADDED TABLE COLUMN
 
         [Required]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]  //    // fix format for dates
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true) ]  //    // fix format for dates
         public DateTime HireDate { get; set; } // SUCCESS
 
 

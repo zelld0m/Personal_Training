@@ -156,7 +156,7 @@ namespace MVCDEMO.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);  // or fixed redirection
             }
             Employee employee = db.employee.Find(id);
             if (employee == null)
