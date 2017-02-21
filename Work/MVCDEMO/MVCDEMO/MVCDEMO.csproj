@@ -186,6 +186,14 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Photos\Chrysanthemum.jpg" />
+    <Content Include="Photos\Desert.jpg" />
+    <Content Include="Photos\Hydrangeas.jpg" />
+    <Content Include="Photos\Jellyfish.jpg" />
+    <Content Include="Photos\Koala.jpg" />
+    <Content Include="Photos\Lighthouse.jpg" />
+    <Content Include="Photos\Penguins.jpg" />
+    <Content Include="Photos\Tulips.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

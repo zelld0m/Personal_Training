@@ -102,10 +102,12 @@
                 </div>
             </td>
             <td>
+                @if (item.Photo != null) { 
                 <div class="display-field">
-                    @*<img src="@Url.Content(modelitem =>item.Photo)" alt="modelItem.AlternateText" />    // NOT WORKING  FOR IMAGE VIEWER
-                    @Html.Image*@
+                    <img src="@Url.Content(item.Photo)" style="width:200px;height:200px"  alt="modelItem.AlternateText" />  
+                
                 </div>
+                }
             </td>
         </tr>
         <tr>
