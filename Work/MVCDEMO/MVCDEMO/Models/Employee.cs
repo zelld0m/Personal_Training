@@ -21,7 +21,7 @@ namespace MVCDEMO.Models
         public string Gender { get; set; }
         [Required]
         //[ReadOnly(true)]   //Not working maybe on metadataType it will work  if not working  remove set is the same on getter:setter
-     
+
         public string City { get; set; }
         [Required]/* [ScaffoldColumn(false)]*/   // NOT WORKING
         public int DepartmentId { get; set; }
@@ -32,9 +32,8 @@ namespace MVCDEMO.Models
 
         //[Required]
         [DataType(DataType.DateTime)]
-      
         [Display(Prompt ="MM/DD/YYYY")]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true) ]  //    // fix format for dates
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]  //    // fix format for dates
         public DateTime? HireDate { get; set; } // SUCCESS     use ? to be nullable
 
 
@@ -51,11 +50,12 @@ namespace MVCDEMO.Models
 
 
         [DataType(DataType.EmailAddress)]       // this will open default email client  and open outlook
+        //[readonly(true)] NOT WORKING readlony attribute
         public String EmailAddress { get; set; }
         public string Photo { get; set; }
         public String AlternateText { get; set; }
 
         #endregion
     }
-   
+
 }
