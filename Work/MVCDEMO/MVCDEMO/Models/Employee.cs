@@ -35,10 +35,10 @@ namespace MVCDEMO.Models
       
         [Display(Prompt ="MM/DD/YYYY")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true) ]  //    // fix format for dates
-        public DateTime? HireDate { get; set; } // SUCCESS    ? nullable
+        public DateTime? HireDate { get; set; } // SUCCESS     use ? to be nullable
 
 
-        [Required]
+        //[Required]
         [ScaffoldColumn(true)]
         [DisplayFormat(NullDisplayText = "Salary not Specified" /*,DataFormatString ="{0:C}"*/ )]
         [DataType(DataType.Currency)]  // System.web globalization  culture="en-us"/>  for currency changes    change the value of culture  // Works only on Integer 

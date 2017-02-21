@@ -183,6 +183,12 @@ namespace MVCDEMO.Controllers
                 ModelState.AddModelError("Name", "The Name Field is Required");
             }
 
+
+            DateTime x = new DateTime(1974,12,25);
+            if(employee.HireDate< x)
+            {
+                ModelState.AddModelError("HireDate", "!date must be greater than 1974");
+            }
             if (ModelState.IsValid)// to verify
             {
                 //   db.ObjectStateManager.ChangeObjectState(employeeFromDb, EntityState.Modified);   used on Entity framwork datamodel

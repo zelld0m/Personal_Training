@@ -93,7 +93,9 @@
             <div class="col-md-4 " >
              
                 @Html.EditorFor(model => model.HireDate, new { htmlAttributes = new { @class = "form-control"} })
-                @Html.ValidationMessageFor(model => model.HireDate, "", new { @class = "text-danger" })MM/DD/YYYY
+                @Html.ValidationMessageFor(model => model.HireDate, "", new { @class = "text-danger" })
+                <br/>
+                MM/DD/YYYY
             </div>
         </div>
         <!-- HireDate End-->
