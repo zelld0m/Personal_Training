@@ -8,42 +8,6 @@
 
 <h2>Details</h2>
 
-@*<table style="font-family:Arial">
-        <tr>
-            <td>
-                <b>Employee ID:</b>
-            </td>
-            <td>
-                @Model.EmployeeId
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>Name: </b>
-            </td>
-            <td>@Model.Name</td>
-        </tr>
-        <tr>
-            <td>
-                <b>Gender: </b>
-            </td>
-            <td>@Model.Gender</td>
-        </tr>
-        <tr>
-            <td>
-                <b>City</b>
-            </td>
-            <td>@Model.City</td>
-        </tr>
-        <tr>
-            <td>
-                <b></b>
-            </td>
-            <td></td>
-        </tr>
-    </table>
-    @Html.ActionLink("Back to List","Index",new { departmentId = Model.DepartmentId })*@
-
 @if (ViewData["nullIds"] != null)
 {
     <p> ID DOES NOT EXIST </p>
@@ -93,72 +57,63 @@
                 <b>Department:</b>
             </td>
             <td>
-
                 @Html.DisplayFor(modelItem => item.DepartmentId)
-                @*<p id="DeptID"></p>*@
-
-                @*<script>
-                        var deptId =@Html.DisplayFor( modelItem => item.DepartmentId);
-                        var y;
-                        switch (deptId) {
-                            case 1: y = "IT";break;
-                            case 2: y = "HR";break;
-                            case 3: y = "Payroll";break;
-                        }
-                        document.getElementById("DeptID").innerHTML = y;
-                    </script>*@  @*Working but only on 1 data*@
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>EmailAddress:</b>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmailAddress)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>HireDate:</b>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HireDate)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>Salary:</b>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Salary)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>PersonalWebSite:</b>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PersonalWebSite)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>Photo:</b>
-                </td>
-                <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>EmailAddress:</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>HireDate:</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HireDate)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Salary:</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>PersonalWebSite:</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonalWebSite)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Photo:</b>
+            </td>
+            <td>
+                <div class="display-field">
                     @Html.DisplayFor(modelItem => item.Photo)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>AlternateText:</b>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AlternateText)
-                </td>
-            </tr>
-        </table>
-        <br />
+                    @*<img src="@Url.Content(modelItem.Photo)"
+                         @Html.Image*@
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>AlternateText:</b>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlternateText)
+            </td>
+        </tr>
+    </table>
+    <br />
 }
 
 <div>
