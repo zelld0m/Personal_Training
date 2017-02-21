@@ -27,14 +27,15 @@ namespace MVCDEMO.Models
         //TABLE ALTERED ADDED Salary,PersonalWebSite, DATEHIRE,EmailAddress,Photo,AlternateText
         #region NEW ADDED TABLE COLUMN
 
-        [Required]
+        //[Required]
         [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true) ]  //    // fix format for dates
-        public DateTime HireDate { get; set; } // SUCCESS
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true) ]  //    // fix format for dates
+        public DateTime? HireDate { get; set; } // SUCCESS    ? nullable
 
 
         [Required]
-        [DisplayFormat(NullDisplayText = "Salary not Specified")]
+        [DisplayFormat(NullDisplayText = "Salary not Specified" /*,DataFormatString ="{0:C}"*/ )]
+        [DataType(DataType.Currency)]
         public decimal Salary { get; set; }
 
         [DataType(DataType.Url)]

@@ -169,7 +169,7 @@ namespace MVCDEMO.Controllers
 
         [HttpPost]  // httpPost is for saving or implementing the data that has beed initiated
         // [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind( /*Exclude ="Name"*/Include = "EmployeeId,Name,Gender,City,DepartmentId")] Employee employee)
+        public ActionResult Edit([Bind( /*Exclude ="Name"*/Include = "EmployeeId,Name,Gender,City,DepartmentId,HireDate,Salary,PersonalWebSite,EmailAddress,Photo,AlternateText")] Employee employee)
         {
             //Employee employeeFromDb = db.employee.Single(x => x.EmployeeId == employee.EmployeeId);
 

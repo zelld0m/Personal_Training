@@ -11,7 +11,7 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="form-horizontal"style="font-size:12px;font-family:Arial">
 
         <h4>Employee</h4>
         <hr />
@@ -68,20 +68,16 @@
             </div>
             @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
         </div><!--DEPARTMENT END-->
+        <!--   -->
+        @*<div class="form-group">
+            <label> Date:</label>
+            <input type="date" id="inputDate" /> =  <br />
+            <label>Time:</label>
+            <input type="time" /><br />
+            <input type="submit" />*@
 
 
-
-
-        <div class="form-group">
-            <!--   -->
-        <label> Date:</label>
-        <input type="date" id="inputDate" /> =  <br />
-        <label>Time:</label>
-        <input type="time" /><br />
-        <input type="submit" />
-
-
-            <div class="form-horizontal">
+        @*<div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(model => model.HireDate, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -90,14 +86,16 @@
                         @Html.ValidationMessageFor(model => model.HireDate, "", new { @class = "text-danger" })
                     </div>
                 </div>
-            </div>
-            <!-- HireDate-->
+            </div>*@
+        <!-- HireDate-->
+        <div class="form-group">
             @Html.LabelFor(model => model.HireDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-4">
                 @Html.EditorFor(model => model.HireDate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.HireDate, "", new { @class = "text-danger" })
             </div>
-        </div><!-- HireDate End-->
+        </div>
+        <!-- HireDate End-->
 
 
         <div class="form-group">
@@ -150,16 +148,16 @@
                 @Html.ValidationMessageFor(model => model.AlternateText, "", new { @class = "text-danger" })
             </div>
         </div><!-- AlternateText End-->
-
+    </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Update" class="btn btn-default" />
             </div>
         </div>
-    </div>
-    <div>
-        @Html.ActionLink("Back to List", "ViewAllEmployee", "Employee")
-    </div>
+
+        <div>
+            @Html.ActionLink("Back to List", "ViewAllEmployee", "Employee")
+        </div>
 
 }
 
