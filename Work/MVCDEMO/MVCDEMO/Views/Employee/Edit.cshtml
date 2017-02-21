@@ -88,21 +88,21 @@
                 </div>
             </div>*@
         <!-- HireDate-->
-        <div class="form-group">
+        <div class="form-group" >
             @Html.LabelFor(model => model.HireDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4">
-                @Html.EditorFor(model => model.HireDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HireDate, "", new { @class = "text-danger" })
+            <div class="col-md-4 " >
+             
+                @Html.EditorFor(model => model.HireDate, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.HireDate, "", new { @class = "text-danger" })MM/DD/YYYY
             </div>
         </div>
         <!-- HireDate End-->
 
-
+        <!-- Salary-->
         <div class="form-group">
-            <!-- Salary-->
             @Html.LabelFor(model => model.Salary, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-4">
-                @Html.EditorFor(model => model.Salary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Salary, new {  htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
             </div>
         </div><!-- Salary End-->

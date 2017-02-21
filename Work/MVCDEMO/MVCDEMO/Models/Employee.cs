@@ -4,12 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+
 namespace MVCDEMO.Models
 {
     // [MetadataType(typeof(EmployeeMetadata))]
     [Table("tblEmployee")]          // This type of class needs to be the same as the Database tablename
     public class Employee
     {
+        //[HiddenInput(DisplayValue=false)]   // using this will hide the ID# 
         public int EmployeeId { get; set; }       //  
                                                   //required removed To unEdit Name in Edit
         [DisplayAttribute(Name = "NAMETest")]  // USING DISPLAY ATTRIBUTE FROM MODEL
@@ -29,13 +32,16 @@ namespace MVCDEMO.Models
 
         //[Required]
         [DataType(DataType.DateTime)]
+      
+        [Display(Prompt ="MM/DD/YYYY")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true) ]  //    // fix format for dates
         public DateTime? HireDate { get; set; } // SUCCESS    ? nullable
 
 
         [Required]
+        [ScaffoldColumn(true)]
         [DisplayFormat(NullDisplayText = "Salary not Specified" /*,DataFormatString ="{0:C}"*/ )]
-        [DataType(DataType.Currency)]
+        [DataType(DataType.Currency)]  // System.web globalization  culture="en-us"/>  for currency changes    change the value of culture  // Works only on Integer 
         public decimal Salary { get; set; }
 
         [DataType(DataType.Url)]

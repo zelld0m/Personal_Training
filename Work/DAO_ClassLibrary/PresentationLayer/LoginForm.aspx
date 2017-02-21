@@ -44,7 +44,7 @@
                 </div>
                     <div class="col-xs-11">
                         <label class="col-xs-11">AuthorityName</label>
-                        <asp:TextBox ID="Tb_AuthorityName" runat="server" class="form-control" placeholder="AuthorityName"></asp:TextBox>
+                        <asp:TextBox ID="Tb_AuthorityName" runat="server" class="form-control" placeholder="AuthoritikkkyName"></asp:TextBox>
                           
                  </div>
              <div class="col-xs-11 space-vert"></div> 
