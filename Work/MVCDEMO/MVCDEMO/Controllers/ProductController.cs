@@ -43,7 +43,7 @@ namespace MVCDEMO.Controllers
             All_edp = EDPLIST;
             EdpString = string.Join(",", EDPLIST);
         }
-        
+
         public void getDetails2(String url_For_EDP_details)
         {
             products.Clear();
@@ -70,7 +70,7 @@ namespace MVCDEMO.Controllers
                             product.Price = reader.ReadElementString("finalPrice"); break;
                         }
                         reader.ReadToFollowing("availabilityDescription");
-                        if (reader.Name == "availabilityDescription") 
+                        if (reader.Name == "availabilityDescription")
                         {
                             product.Availability = reader.ReadElementString("availabilityDescription");
                         }
@@ -81,7 +81,7 @@ namespace MVCDEMO.Controllers
                                 if (reader.Name == ("image"))
                                 {
                                     reader.ReadToFollowing("xlg");
-                                    if (reader.Name == "xlg") 
+                                    if (reader.Name == "xlg")
                                     {
                                         product.Imageurl = reader.ReadElementString("xlg"); break;
                                     }
@@ -96,7 +96,7 @@ namespace MVCDEMO.Controllers
             reader.Dispose();
         }
         #endregion
-        
+
         #region URL
 
         private string searchManagerURL;
@@ -107,7 +107,7 @@ namespace MVCDEMO.Controllers
         private int brandLimit = 10;
 
         public string Findproduct { get; set; }
-        public int StartRead { get; set; }
+        public int StartRead { get; set; } 
         public int ProductLimitView { get; set; }
         public int BrandLimit { get; set; }
 
@@ -122,7 +122,7 @@ namespace MVCDEMO.Controllers
                 searchManagerURL = value;
             }
         }
-        public string Alldetails_Use_EDP
+        public string Url_product_With_EDP
         {
             get
             {
@@ -145,9 +145,21 @@ namespace MVCDEMO.Controllers
 
         public ActionResult Index() // just return a view here
         {
-            return View();
-        }
 
+            getEDPfromSearchManager2(SearchManagerURL);
+
+
+            return View(products);
+        }
+        public ActionResult findProduct(String searchProduct="laptop")
+        {
+            Findproduct = searchProduct;
+            getEDPfromSearchManager2(SearchManagerURL);         // RETURNS EDP
+            getDetails2(Url_product_With_EDP); // Uses URL EDP and Get Details
+
+
+            return View(products);
+        }
         
     }
 }

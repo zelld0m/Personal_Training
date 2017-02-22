@@ -245,11 +245,10 @@
     <Content Include="Views\Employee\Details2.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\OpenInNewWindow.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Product\findProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\PageSearch\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
