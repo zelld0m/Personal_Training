@@ -7,6 +7,9 @@ using MVCDEMO.Models;
 using System.Net;
 using System.Data.Entity;
 using MVCDEMO.Models;
+using PagedList;
+using PagedList.Mvc;
+
 namespace MVCDEMO.Controllers
 {
     public class EmployeeController : Controller
@@ -133,7 +136,7 @@ namespace MVCDEMO.Controllers
             //EmployeeContext employeeContext = new EmployeeContext();
             //List<Employee> employees = employeeContext.Employee.ToList();
             //--------------------------------------------------------------------
-            Employee employee; // as person
+          
 
             List<Employee> employees = db.employee.ToList();
             for (int i = 0;i <= 10;i++)
@@ -150,6 +153,15 @@ namespace MVCDEMO.Controllers
         }
         #endregion
 
+
+        public ActionResult ViewAllEmployee2(int ? page)
+        {
+            //EmployeeContext employeeContext = new EmployeeContext();
+            //List<Employee> employees = employeeContext.Employee.ToList();
+            //--------------------------------------------------------------------
+            List<Employee> employees = db.employee.ToList();
+            return View(employees.ToList().ToPagedList(page ?? 1,3));
+        }
         #region Update
 
         public ActionResult Edit(int? id)  // DATA REQUEST TO BE SHOWN ON EDIT PAGE     ? is for null acceptance entry 

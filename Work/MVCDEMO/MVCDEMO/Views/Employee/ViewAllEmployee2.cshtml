@@ -1,0 +1,98 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+
+
+@model IPagedList<MVCDEMO.Models.Employee>
+
+@{
+    ViewBag.Title = "ViewAllEmployee2";
+}
+
+<h2>ViewAllEmployee2</h2>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+      
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p >
+<div style="font-family:Arial">
+    <table border="1" class="table" style="font-size:9px ">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().DepartmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().HireDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().PersonalWebSite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().AlternateText)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HireDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonalWebSite)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Photo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlternateText)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.PagedListPager(Model, page => Url.Action("ViewAllEmployee2", "Employee", new { Page }))
+
+</div>
