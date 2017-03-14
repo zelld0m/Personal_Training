@@ -8,7 +8,19 @@ namespace ConsoleTestExams
 {
     class Program
     {
-        #region DelegateTraining1
+
+        #region RESULT  " 8 "
+        delegate int mydel(int aa, int bb);
+        static void Main(String[] args)
+        {
+            mydel d = (a, b) => a + 2 * b;
+            Console.WriteLine(d(2, 3));
+            Console.Read();
+        }
+
+        #endregion
+
+        #region Changes format to return
 
         //delegate int mydel(int aa);
         //int myfunc(int a) { return a * a; }
@@ -28,49 +40,53 @@ namespace ConsoleTestExams
         //static void Main(string[] args)
         //{
         //    Console.WriteLine(Palindrome("OLLO"));
-
         //    Console.ReadLine();
         //}
 
-        public static string Palindrome(String word)
-       {
-            string rev = "";
-            for (int i = word.Length - 1; i >= 0; i--)
-            {
-                rev += word[i];
-            }
-            rev = (rev == word ? "PALINDROME" : "NOT PALINDROME");
-            return rev;
-        }
+        #region palindrome
+        //public static string palindrome(string word)
+        //{
+        //    string rev = "";
+        //    for (int i = word.length - 1; i >= 0; i--)
+        //    {
+        //        rev += word[i];
+        //    }
+        //    rev = (rev == word ? "palindrome" : "not palindrome");
+        //    return rev;
+        //} 
+        #endregion
     }
-    interface interface1 { void showMe(); }
-    interface interface2 { void showYou(); }
-    class BaseClass
-    {
-        public virtual void show()
-        {
-            System.Console.WriteLine("base class");
-        }
-    }
-    class DerivedAndImplemented : BaseClass, interface1, interface2
-    {
-        public void showMe()
-        {
-            System.Console.WriteLine("Me!");
-        }
-        public void showYou()
-        {
-            System.Console.WriteLine("You!");
-        }
-        public override void show()
-        {
-            Console.WriteLine("im in derived class");
-        }
-        static void main(String[] args)
-        {
-            DerivedAndImplemented de = new DerivedAndImplemented();
-            de.show();
-            System.Console.Read();
-        }
-    }
+    #region overrite
+    //interface interface1 { void showMe(); }
+    //interface interface2 { void showYou(); }
+    //class BaseClass
+    //{
+    //    public virtual void show()
+    //    {
+    //        System.Console.WriteLine("base class");
+    //    }
+    //}
+    //class DerivedAndImplemented : BaseClass, interface1, interface2
+    //{
+    //    public void showMe()
+    //    {
+    //        System.Console.WriteLine("Me!");
+    //    }
+    //    public void showYou()
+    //    {
+    //        System.Console.WriteLine("You!");
+    //    }
+    //    public override void show()
+    //    {
+    //        Console.WriteLine("im in derived class");
+    //    }
+    //    static void main(String[] args)
+    //    {
+    //        DerivedAndImplemented de = new DerivedAndImplemented();
+    //        de.show();
+    //        System.Console.Read();
+    //    }
+    //} 
+    #endregion
+
 }
