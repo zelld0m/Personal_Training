@@ -1,0 +1,115 @@
+﻿<html>
+<head>
+    <title>   </title>
+    <script src="Content/jQUery/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('#button1').on('click', function () {
+                $('#menu_wrapper').slideToggle();
+                var panelId = $(this).attr('data-panelid');
+                alert(panelId);
+            });
+        });
+        $(function () {
+            $('#button2').on('click', function () {
+                $('.menu_list1').slideDown(500);
+                $('.menu_list2').slideDown(500);
+                $('.menu_list3').slideDown(500);
+                $('.menu_list4').slideDown(500);
+            });
+        });
+
+        $(function () {
+            $('#thai').mouseenter(function () {
+                $('.menu_list1').slideDown(500);
+            });
+            $('#thai').mouseleave(function () {
+                $('.menu_list1').slideUp(500);
+            })
+        });
+        $(function () {
+            $('#Panini').mouseenter(function () {
+                $('.menu_list2').slideDown(500);
+            });
+            $('#Panini').mouseleave(function () {
+                $('.menu_list2').slideUp(500);
+            })
+        });
+
+        $(function () {
+            $('#Southwest').mouseenter(function () {
+                $('.menu_list3').slideDown(500);
+            });
+            $('#Southwest').mouseleave(function () {
+                $('.menu_list3').slideUp(500);
+            })
+        });
+
+
+        $(function () {
+            $('.menu_list').on('hover', function () {
+                $('.this').fadeOut();
+            });
+        });
+
+        $(function () {
+            $('.panel-text').on('click', function () {
+                var panelId = $(this).attr('data-panelId');
+                alert(panelId);
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <button type="button" id="button1" data-panelid="panel1">Go 1</button>
+            <button type="button" id="button2" data-panelid="panel2">Go 2</button>
+            <button type="button" class="panel-button" data-panelid="panel3">Go 3</button>
+            <button type="button" class="panel-button" data-panelid="panel4">Go 4</button>
+        </div>
+    </div>
+    <div id="menu_wrapper">
+        <div class="left_col">
+            <h4>Dinner Entrees</h4>
+            <ul class="menu_entrees">
+                <li>
+                    <div id="thai" class="thai-style" style="font-size:25px; font-family:Arial">
+                        Thai-style Halibut
+                        <ul class="menu_list1" style="font-size:14px">
+                            <li>coconut milk</li>
+                            <li>pan-fried halibut</li>
+                            <li>early autumn vegetables</li>
+                            <li>Thai spices </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div id="Panini" class="panini-style" style="font-size:25px; font-family:Arial">
+                        House Grilled Panini
+                        <ul class="menu_list2" style="font-size:14px">
+                            <li>prosciutto</li>
+                            <li>provolone</li>
+                            <li>avocado</li>
+                            <li>sourdough roll</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div id="Southwest" class="panini-style" style="font-size:25px; font-family:Arial">
+                        Southwest Slider
+                        <ul class="menu_list3" style="font-size:14px">
+                            <li>whole chiles</li>
+                            <li>hamburger</li>
+                            <li>pepperjack cheese</li>
+                            <li>multigrain roll</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
