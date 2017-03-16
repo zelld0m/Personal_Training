@@ -6,10 +6,16 @@
 
     <script src="Content/Scripts/LiveSearchThe_Webville_Eatery.js"></script>
     <script src="Content/Scripts/jquery-3.1.1.min.js"></script>
-
     <script>
-
-
+        $(function () {
+            $(".test1").css("background-color", "green");
+            $(".test1").on("click", function () {
+                alert("xxx");
+            });
+        });
+       
+    </script>
+    <script>
 
         $(function () {
             $('#thai').mouseenter(function () {
@@ -22,19 +28,19 @@
 
         $(function () {
             $('#Panini').mouseenter(function () {
-                $('.menu_list2').slideDown(500);
+                $('.menu_list2').slideDown(200);
             });
             $('#Panini').mouseleave(function () {
-                $('.menu_list2').slideUp(500);
+                $('.menu_list2').slideUp(200);
             })
         });
 
         $(function () {
             $('#Southwest').mouseenter(function () {
-                $('.menu_list3').slideDown(500);
+                $('.menu_list3').slideDown(200);
             });
             $('#Southwest').mouseleave(function () {
-                $('.menu_list3').slideUp(500);
+                $('.menu_list3').slideUp(200);
             })
         });
 
@@ -73,6 +79,7 @@
             <h4>Dinner Entrees</h4>
             <ul class="menu_entrees">
                 <li>
+                    <div class="test1">hello</div>
                     <div id="thai" class="thai-style" style="font-size:25px; font-family:Arial">
                         Thai-style Halibut
                         <ul class="menu_list1" style="font-size:14px">
