@@ -1,13 +1,18 @@
-﻿$(document).ready(function () {
-    $('.search').on('keyup', function () {
-        var searchTerm = $(this).val().toLowerCase();
-        $('#menu_wrapper li ul').each(function () {
-            var lineStr = $(this).text().toLowerCase();
-            if (lineStr.indexOf(searchTerm) === -1) {
-                $(this).hide();
-            } else {
-                $(this).show();
-            }
-        });
+﻿
+$(document).ready(function () {
+    $('#thai').mouseenter(function () {
+        $('.menu_list1').slideDown(500);
     });
+    $('#thai').mouseleave(function () {
+        $('.menu_list1').slideUp(500);
+    });
+});
+
+$(function () {
+    $('#Panini').mouseenter(function () {
+        $('.menu_list2').slideDown(500);
+    });
+    $('#Panini').mouseleave(function () {
+        $('.menu_list2').slideUp(500);
+    })
 });

@@ -1,24 +1,15 @@
 ﻿<html>
 <head>
     <title>   </title>
-    <script src="Content/jQUery/jquery-3.1.1.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="Content/Scripts/LiveSearchThe_Webville_Eatery.js"></script>
+    <script src="Content/Scripts/jquery-3.1.1.min.js"></script>
+
     <script>
-        $(function () {
-            $('#button1').on('click', function () {
-                $('#menu_wrapper').slideToggle();
-                var panelId = $(this).attr('data-panelid');
-                alert(panelId);
-            });
-        });
-        $(function () {
-            $('#button2').on('click', function () {
-                $('.menu_list1').slideDown(500);
-                $('.menu_list2').slideDown(500);
-                $('.menu_list3').slideDown(500);
-                $('.menu_list4').slideDown(500);
-            });
-        });
+
+
 
         $(function () {
             $('#thai').mouseenter(function () {
@@ -28,6 +19,7 @@
                 $('.menu_list1').slideUp(500);
             })
         });
+
         $(function () {
             $('#Panini').mouseenter(function () {
                 $('.menu_list2').slideDown(500);
@@ -46,28 +38,34 @@
             })
         });
 
-
         $(function () {
-            $('.menu_list').on('hover', function () {
-                $('.this').fadeOut();
-            });
-        });
+            $('.panel-button').on('click',function () {
+                var panelId = $(this).attr('data-panelid');
 
-        $(function () {
-            $('.panel-text').on('click', function () {
-                var panelId = $(this).attr('data-panelId');
-                alert(panelId);
+                $('.menu_list' + panelId).slideDown(300);
+            })
+            $('.panel-button').mouseleave(function () {
+                var panelId = $(this).attr('data-panelid');
+
+                $('.menu_list' + panelId).slideUp(100);
             })
         })
+
+        //REMOVE li clicked
+        //$(function () {
+        //    $('li').on('click', function () {
+        //        $(this).siblings().remove();
+        //    });
+        //});
     </script>
 </head>
 <body>
     <div class="container">
         <div class="jumbotron">
-            <button type="button" id="button1" data-panelid="panel1">Go 1</button>
-            <button type="button" id="button2" data-panelid="panel2">Go 2</button>
-            <button type="button" class="panel-button" data-panelid="panel3">Go 3</button>
-            <button type="button" class="panel-button" data-panelid="panel4">Go 4</button>
+            <button type="button" data-panelid="1" class="panel-button">1</button>
+            <button type="button" data-panelid="2" class="panel-button">2</button>
+            <button type="button" data-panelid="3" class="panel-button">3</button>
+            <button type="button" data-panelid="4" class="panel-button">4</button>
         </div>
     </div>
     <div id="menu_wrapper">
