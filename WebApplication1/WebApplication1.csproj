@@ -95,9 +95,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Page\index.html" />
+    <Content Include="Content\Page\Mapping.html" />
+    <Content Include="Content\Scripts\form.css" />
     <Content Include="Content\Scripts\jquery-3.1.1.min.js" />
     <Content Include="Content\Page\ActualPage.html" />
     <Content Include="Content\Scripts\LiveSearchThe_Webville_Eatery.js" />
+    <Content Include="Content\Scripts\maps.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

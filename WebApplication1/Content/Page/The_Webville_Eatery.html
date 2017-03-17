@@ -3,67 +3,9 @@
     <title>   </title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <script src="Content/Scripts/LiveSearchThe_Webville_Eatery.js"></script>
-    <script src="Content/Scripts/jquery-3.1.1.min.js"></script>
-    <script>
-        $(function () {
-            $(".test1").css("background-color", "green");
-            $(".test1").on("click", function () {
-                alert("xxx");
-            });
-        });
-       
-    </script>
-    <script>
-
-        $(function () {
-            $('#thai').mouseenter(function () {
-                $('.menu_list1').slideDown(500);
-            });
-            $('#thai').mouseleave(function () {
-                $('.menu_list1').slideUp(500);
-            })
-        });
-
-        $(function () {
-            $('#Panini').mouseenter(function () {
-                $('.menu_list2').slideDown(200);
-            });
-            $('#Panini').mouseleave(function () {
-                $('.menu_list2').slideUp(200);
-            })
-        });
-
-        $(function () {
-            $('#Southwest').mouseenter(function () {
-                $('.menu_list3').slideDown(200);
-            });
-            $('#Southwest').mouseleave(function () {
-                $('.menu_list3').slideUp(200);
-            })
-        });
-
-        $(function () {
-            $('.panel-button').on('click',function () {
-                var panelId = $(this).attr('data-panelid');
-
-                $('.menu_list' + panelId).slideDown(300);
-            })
-            $('.panel-button').mouseleave(function () {
-                var panelId = $(this).attr('data-panelid');
-
-                $('.menu_list' + panelId).slideUp(100);
-            })
-        })
-
-        //REMOVE li clicked
-        //$(function () {
-        //    $('li').on('click', function () {
-        //        $(this).siblings().remove();
-        //    });
-        //});
-    </script>
+    <script src="../Scripts/LiveSearchThe_Webville_Eatery.js"></script>
+    <script src="../Scripts/jquery-3.1.1.min.js"></script>
+   
 </head>
 <body>
     <div class="container">
@@ -86,7 +28,7 @@
                             <li>coconut milk</li>
                             <li>pan-fried halibut</li>
                             <li>early autumn vegetables</li>
-                            <li>Thai spices </li>
+                            <li id="thaiwan">Thai spices </li>
                         </ul>
                     </div>
                 </li>

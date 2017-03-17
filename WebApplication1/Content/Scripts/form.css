@@ -1,0 +1,8 @@
+﻿body {
+}
+
+#map_canvas{
+    float:left;
+    height:450px;
+    width: 450px;
+}
