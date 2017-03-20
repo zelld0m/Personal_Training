@@ -7,7 +7,8 @@ $(document).ready(function () {
     $('#thai').mouseleave(function () {
         $('.menu_list1').slideUp(300);
     });
-});
+    
+});//menulist1
 
 $(function () {
     $('#Panini').mouseenter(function () {
@@ -16,7 +17,7 @@ $(function () {
     $('#Panini').mouseleave(function () {
         $('.menu_list2').slideUp(300);
     });
-});
+});//Menulist2
 
 $(function () {
     $('#Southwest').mouseenter(function () {
@@ -25,9 +26,12 @@ $(function () {
     $('#Southwest').mouseleave(function () {
         $('.menu_list3').slideUp(300);
     });
-});
-
-
+});//Menulist3
+$(function () {
+    $('.menutest3').on('click', function () { // if u clicked menutest3
+        $('.menutest2').slideToggle(300);  // menutest2 will toggle
+    });
+})
 
 
 
