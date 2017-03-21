@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\HeadFirst\index.html" />
+    <Content Include="Content\jqueryForDummies\affectingElementsWithEffects.html" />
     <Content Include="Content\jqueryForDummies\jqueryForDummies.html" />
     <Content Include="Content\HeadFirst\Mapping.html" />
     <Content Include="Content\jqueryForDummies\parent child.html" />
