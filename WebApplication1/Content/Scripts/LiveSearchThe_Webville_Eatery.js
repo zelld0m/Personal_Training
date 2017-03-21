@@ -7,7 +7,7 @@ $(document).ready(function () {
     $('#thai').mouseleave(function () {
         $('.menu_list1').slideUp(300);
     });
-    
+
 });//menulist1
 
 $(function () {
@@ -39,16 +39,18 @@ $(function () {
 
 
 //<!-- Working -->        // this wont work because of ('data-panelid') it was a created attribute on htmlpage
-$(function () { 
-    $('.panel-button').on('click', function () {
-        var panelId = $(this).attr('data-panelid');
+$(document).ready(function () {
+    $(function () {
+        $('.panel-button').on('click', function () {
+            var panelId = $(this).attr('data-panelid');
 
-        $('.menu_list' + panelId).slideDown(300);
-    });
-    $('.panel-button').mouseleave(function () {
-        var panelId = $(this).attr('data-panelid');
+            $('.menu_list' + panelId).slideDown(300);
+        });
+        $('.panel-button').mouseleave(function () {
+            var panelId = $(this).attr('data-panelid');
 
-        $('.menu_list' + panelId).slideUp(100);
+            $('.menu_list' + panelId).slideUp(100);
+        });
     });
 });
 
@@ -68,6 +70,11 @@ $(document).ready(function () {
     $(".test1").on("click", function () {
         $(".test1").css("background-color", "red");
     })
+});
+
+
+$(‘#textbox2’).focus(function() {
+    alert(‘textbox2 has focus’);
 });
 
 //<!-- Working  -->

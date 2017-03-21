@@ -94,13 +94,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Page\index.html" />
-    <Content Include="Content\Page\Mapping.html" />
+    <Content Include="Content\HeadFirst\index.html" />
+    <Content Include="Content\jqueryForDummies\jqueryForDummies.html" />
+    <Content Include="Content\HeadFirst\Mapping.html" />
+    <Content Include="Content\jqueryForDummies\parent child.html" />
     <Content Include="Content\Scripts\form.css" />
     <Content Include="Content\Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Content\Page\ActualPage.html" />
+    <Content Include="Content\HeadFirst\ActualPage.html" />
     <Content Include="Content\Scripts\LiveSearchThe_Webville_Eatery.js" />
-    <Content Include="Content\Scripts\maps.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -113,16 +114,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Page\HtmlPage1.html" />
-    <Content Include="Content\Page\The_Webville_Eatery.html" />
+    <Content Include="Content\HeadFirst\HtmlPage1.html" />
+    <Content Include="Content\HeadFirst\The_Webville_Eatery.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\jQUery\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
