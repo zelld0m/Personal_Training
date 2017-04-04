@@ -17,7 +17,7 @@
                         elements[i].checked = true;
                     }        
                 }
-                else
+                else 
                 {
                     elements[i].checked = false;
                 }      
